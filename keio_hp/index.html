@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ナガセ広報研究所 慶應三田オフィス 長期インターン募集（v15）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:       #29ABE2;
+  --sky-dark:  #0F7EB0;
+  --sky-soft:  #EAF7FE;
+  --red:       #E8412F;
+  --red-dark:  #C7301F;
+  --yellow:    #FFC94A;
+  --ink:       #1F2430;
+  --line:      #DDEAF3;
+  --cream:     #FFFFFF;
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --max: 1080px;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0; font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','メイリオ',sans-serif;
+  color:var(--ink); background:var(--cream); line-height:1.8;
+}
+h1,h2,h3,h4{ font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+.common-banner-placeholder{
+  background:#f3f3f3; border-top:1px dashed #ccc; border-bottom:1px dashed #ccc;
+  text-align:center; padding: 14px; font-size:.8rem; color:#777;
+}
+.section-cta{ text-align:center; padding: 26px 20px; }
+.btn-primary{
+  display:inline-block; text-decoration:none; font-weight:900; font-size:1rem;
+  color:#fff; background: linear-gradient(135deg, var(--red), var(--red-dark));
+  padding: 14px 100px; border-radius:999px;
+  box-shadow: 0 8px 20px rgba(232,65,47,.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(232,65,47,.45); }
+.btn-primary.small{ font-size:.85rem; padding: 10px 28px; }
+
+/* ▼ スクロール演出（合格体験記マンガサイトを参考にしたフェードイン） ▼ */
+.reveal{ opacity:0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform: translateY(0); }
+
+.hero{ padding: 40px 0 50px; background: linear-gradient(180deg, var(--sky-soft) 0%, #fff 100%); }
+.hero-copy{ text-align:center; max-width:640px; margin:0 auto 28px; padding:0 20px; }
+
+.brand-mark{ text-align:center; margin-bottom:20px; }
+.brand-mark-en{
+  display:block; font-weight:900; font-size:.76rem; letter-spacing:.3em;
+  color: var(--sky-dark); text-transform:uppercase; margin:0;
+}
+.brand-mark-en::after{
+  content:""; display:block; width:36px; height:3px; background: var(--red);
+  margin: 10px auto 0; border-radius:2px;
+}
+.brand-mark-jp{
+  display:block; font-size:.92rem; font-weight:700; color:#4b5266;
+  letter-spacing:.06em; margin-top:10px;
+}
+
+.catch{ position:relative; display:inline-block; margin: 6px 0 14px; }
+.catch .bubble{
+  position:absolute; top:-30px; left:-6px;
+  background:#fff; border:2px solid var(--red); color:var(--red-dark);
+  font-size:.77rem; font-weight:900; padding:3px 10px; border-radius: 999px 999px 999px 4px;
+  white-space:nowrap;
+}
+.catch h1{
+  font-size: clamp(1.9rem, 6.3vw, 2.7rem); font-weight:900; color: var(--sky-dark);
+  line-height:1.5; margin:0;
+}
+.catch h1 .accent{ position:relative; }
+.catch h1 .accent::after{
+  content:""; position:absolute; left:-2%; right:-2%; bottom:2px; height:.38em;
+  background: var(--yellow); z-index:-1; border-radius:4px; opacity:.75;
+}
+.hero-copy p.lead{ color:#4b5266; font-size:1rem; margin:14px 0 0; }
+
+.hero-photo{ max-width: 880px; margin: 0 auto; padding: 0 20px; position:relative; }
+.hero-photo img{
+  width:100%; border-radius: var(--radius-l); box-shadow: 0 12px 30px rgba(15,126,176,.2);
+}
+.hero-photo .cap{ text-align:center; font-size:.75rem; color:#8a8f9c; margin-top:8px; }
+
+/* ▼【改善①】画像に重ねた、より目立つタグ表示 ▼ */
+.tags-overlay{
+  position:absolute; left:16px; right:16px; bottom:16px;
+  display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+  padding:16px 12px 8px;
+  background: linear-gradient(0deg, rgba(15,38,54,.78) 10%, rgba(15,38,54,0) 100%);
+  border-radius: 0 0 var(--radius-l) var(--radius-l);
+}
+.tags-overlay span{
+  background:#fff; color:var(--sky-dark); font-weight:900; font-size:1.05rem;
+  padding:10px 22px; border-radius:999px; box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  border: 2px solid var(--yellow);
+}
+@media (max-width:600px){
+  .tags-overlay{ gap:8px; padding:12px 8px 6px; }
+  .tags-overlay span{ font-size:.85rem; padding:8px 14px; }
+}
+
+.toc-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap:16px;
+  max-width: var(--max); margin: 30px auto 0; padding:0 20px;
+}
+.toc-card{
+  position:relative; overflow:hidden; display:block; text-decoration:none; color:inherit;
+  background:#fff; border-radius:22px; padding:32px 18px 26px; text-align:center;
+  box-shadow: 0 6px 18px rgba(15,126,176,.08);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.toc-card:hover{ transform: translateY(-3px); box-shadow: 0 10px 24px rgba(15,126,176,.14); }
+.toc-card::after{
+  content:""; position:absolute; right:-35%; bottom:-45%; width:140%; height:140%;
+  background: var(--sky-soft); border-radius:50%; z-index:0;
+}
+.toc-icon-circle{
+  position:relative; z-index:1; width:64px; height:64px; border-radius:50%;
+  background:#EAF3FB; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;
+}
+.toc-icon-circle svg{ width:28px; height:28px; stroke: var(--sky-dark); fill:none; stroke-width:1.8; }
+.toc-label{ position:relative; z-index:1; display:block; font-weight:700; color:var(--ink); font-size:1rem; margin-bottom:14px; }
+.toc-arrow{ position:relative; z-index:1; display:flex; justify-content:center; }
+.toc-arrow-icon{
+  width:20px; height:20px; stroke: var(--sky-dark); fill:none; stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+@media (max-width:700px){ .toc-grid{ grid-template-columns: repeat(2, 1fr); gap:12px; } }
+@media (max-width:480px){
+  .toc-grid{ grid-template-columns: repeat(4, 1fr); gap:6px; }
+  .toc-card{ display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 8px 4px; border-radius:14px; min-height:64px; }
+  .toc-card::after{ display:none; }
+  .toc-icon-circle{ width:26px; height:26px; margin:0 0 3px; }
+  .toc-icon-circle svg{ width:14px; height:14px; stroke-width:2.2; }
+  .toc-label{ font-size:.62rem; line-height:1.15; margin-bottom:2px; white-space:normal; }
+  .toc-arrow-icon{ width:12px; height:12px; }
+}
+
+.collage{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:16px;
+  max-width: var(--max); margin: 24px auto 0; padding:0 20px;
+}
+.collage img{
+  width:100%; aspect-ratio: 1 / 1; object-fit:cover; border-radius:20px;
+  border:4px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+@media (max-width:600px){ .collage{ grid-template-columns: repeat(2,1fr); } }
+
+.hero-cta{ text-align:center; margin-top: 30px; }
+.hero-cta .sub{ margin-top:10px; font-size:.82rem; color:var(--red-dark); font-weight:700; }
+.intro-text-section{ padding: 36px 0; }
+.intro-lead{ font-size:.94rem; color:#444; max-width: 720px; margin: 0 auto; text-align:left; }
+section{ padding: 56px 0; }
+.section-alt{ background: var(--sky-soft); }
+.section-head{ text-align:center; max-width:620px; margin:0 auto 36px; }
+.section-eyebrow{ color: var(--sky-dark); font-weight:700; font-size:.8rem; letter-spacing:.04em; }
+.section-head h2{ font-size: clamp(1.4rem,3vw,1.9rem); color: var(--sky-dark); font-weight:900; margin:6px 0 10px; }
+.section-head p{ color:#5a6072; font-size:.95rem; margin:0; }
+
+.message-block{
+  display:flex; gap:28px; align-items:flex-start; background:#fff;
+  border-radius: var(--radius-m); border:1px solid var(--line); padding:26px; flex-wrap:wrap;
+}
+.message-photo{ width:180px; height:180px; object-fit:cover; border-radius: var(--radius-m); flex-shrink:0; margin:0 auto; }
+.message-qa{ flex:1; min-width:240px; }
+.message-q{
+  font-weight:900; color: var(--sky-dark); font-size:.95rem; margin:0 0 8px;
+  padding-left:10px; border-left:4px solid var(--red);
+}
+.message-a{ font-size:.86rem; color:#555; margin:0 0 22px; }
+.message-a:last-child{ margin-bottom:0; }
+@media (max-width:600px){
+  .message-block{ flex-direction:column; align-items:center; text-align:left; }
+  .message-photo{ width:140px; height:140px; }
+}
+.sns-follow{ text-align:center; padding: 30px 20px 10px; }
+.sns-follow p{ font-weight:700; font-size:.9rem; color: var(--sky-dark); margin-bottom:12px; }
+.sns-follow-icons a{ display:inline-block; margin:0 20px; }
+.sns-follow-icons img{ width:132px; height:132px; border-radius:50%; box-shadow: 0 6px 16px rgba(0,0,0,.16); }
+@media (max-width:480px){
+  .sns-follow-icons img{ width:96px; height:96px; }
+  .sns-follow-icons a{ margin:0 12px; }
+}
+
+/* ▼ OUR WORK：チーム別の見出し・業務フロー ▼ */
+.work-subhead{
+  font-size:1.1rem; color: var(--sky-dark); font-weight:900; margin:44px 0 8px;
+  display:flex; align-items:center; gap:8px;
+}
+.work-subhead:first-of-type{ margin-top:0; }
+.work-sublead{ font-size:.88rem; color:#5a6072; margin:0 0 20px; }
+
+.process-row{ display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-bottom:8px; }
+.process-row.steps4{ grid-template-columns: repeat(4, 1fr); }
+.process-step{
+  background:#fff; border:1px solid var(--line); border-radius: var(--radius-m);
+  padding:18px 16px; position:relative;
+}
+.process-num{
+  display:inline-block; font-size:.68rem; font-weight:900; color:#fff; background: var(--sky);
+  padding:3px 10px; border-radius:999px; margin-bottom:8px;
+}
+.process-step h4{ margin:0 0 6px; font-size:.92rem; color:var(--sky-dark); }
+.process-step p{ margin:0; font-size:.78rem; color:#555; }
+@media (max-width:820px){ .process-row, .process-row.steps4{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:520px){ .process-row, .process-row.steps4{ grid-template-columns: 1fr; } }
+
+.work-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:20px; margin-top:24px; }
+.work-card{
+  position:relative; background:#fff; border-radius: var(--radius-m); border:1px solid var(--line);
+  border-top: 5px solid var(--sky); overflow:hidden;
+}
+.work-card.featured{ border-top-color: var(--red); box-shadow: 0 10px 26px rgba(232,65,47,.12); }
+.work-badge-hot{
+  position:absolute; top:12px; right:12px; z-index:2;
+  background: var(--red); color:#fff; font-size:.68rem; font-weight:900;
+  padding:4px 12px; border-radius:999px; box-shadow: 0 3px 8px rgba(232,65,47,.4);
+}
+.work-thumb{
+  position:relative; display:block; aspect-ratio: 16 / 9; overflow:hidden;
+  background: var(--sky-soft);
+}
+.work-thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .3s ease; }
+.work-thumb:hover img{ transform: scale(1.06); }
+.work-thumb-badge{
+  position:absolute; right:10px; bottom:10px;
+  background: rgba(15,38,54,.72); color:#fff; font-size:.7rem; font-weight:700;
+  padding:5px 12px; border-radius:999px;
+}
+.work-head{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding: 22px 50px 22px 22px; position:relative;
+}
+.work-num{
+  display:inline-block; font-size:.72rem; font-weight:900; color:#fff; background: var(--sky);
+  padding:3px 10px; border-radius:999px; margin-bottom:10px;
+}
+.work-head h3{ margin:0 0 6px; font-size:1.02rem; color:var(--sky-dark); }
+.work-head .keyword{ font-weight:900; color: var(--red-dark); font-size:.95rem; }
+.work-head::after{
+  content:"+"; position:absolute; right:18px; top:24px; font-size:1.5rem; font-weight:900; color:var(--sky);
+}
+.work-card.open .work-head::after{ content:"−"; }
+.work-body{ max-height:0; overflow:hidden; transition:max-height .3s ease; }
+.work-card.open .work-body{ max-height: 420px; }
+.work-body p{ margin:0 0 10px; padding: 0 22px; font-size:.86rem; color:#555; }
+.work-body p:last-child{ padding-bottom:22px; }
+@media (max-width:700px){ .work-grid{ grid-template-columns: 1fr; } }
+
+.people-scroll{ display:flex; gap:18px; overflow-x:auto; padding:6px 4px 20px; scroll-snap-type:x mandatory; }
+.people-card{
+  flex:0 0 240px; scroll-snap-align:start; background:#fff; border-radius: var(--radius-m);
+  overflow:hidden; border:1px solid var(--line);
+}
+.people-card img{ height:240px; object-fit:cover; }
+.people-card .body{ padding:14px 16px; }
+.people-card .name{ font-weight:900; color:var(--sky-dark); font-size:.92rem; }
+.people-card .dept{ font-size:.72rem; color:#888; margin-bottom:8px; }
+.people-card .quote{ font-size:.83rem; color:#444; }
+.access-map{ margin-top: 20px; background:#fff; border:1px solid var(--line); border-radius: var(--radius-m); padding: 20px; }
+.access-address{ font-size:.88rem; color:#444; margin-bottom:14px; font-weight:700; }
+.access-map iframe{ border-radius: var(--radius-s); width:100%; }
+
+/* ▼ 選考フロー（早稲田オフィスと共通の内容） ▼ */
+.flow{ display:grid; grid-template-columns: repeat(4,1fr); gap: 16px; counter-reset: step; }
+.flow-step{ position:relative; background:#fff; border-radius: var(--radius-m); padding: 26px 18px 20px; border:1px solid var(--line); }
+.flow-step::before{
+  counter-increment: step; content: "STEP " counter(step);
+  display:inline-block; font-size:.72rem; font-weight:900; color:#fff; background: var(--sky);
+  padding: 3px 10px; border-radius: 999px; margin-bottom:10px;
+}
+.flow-step h3{ font-size:.95rem; margin:0 0 6px; color:var(--sky-dark); }
+.flow-step p{ font-size:.82rem; color:#555; margin:0; }
+@media (max-width:820px){ .flow{ grid-template-columns: 1fr 1fr; } }
+@media (max-width:520px){ .flow{ grid-template-columns: 1fr; } }
+
+.faq-category{ font-weight:900; color:var(--sky-dark); font-size:1rem; margin: 28px 0 12px; padding-left:10px; border-left:5px solid var(--sky); }
+.faq-item{ background:#fff; border:1px solid var(--line); border-radius: var(--radius-s); margin-bottom:10px; overflow:hidden; }
+.faq-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:15px 46px 15px 18px; font-weight:700; font-size:.9rem; color:var(--sky-dark); position:relative;
+}
+.faq-q::after{ content:"+"; position:absolute; right:16px; top:50%; transform:translateY(-50%); font-size:1.2rem; color:var(--red); font-weight:900; }
+.faq-item.open .faq-q::after{ content:"−"; }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .3s ease; padding:0 18px; font-size:.84rem; color:#555; }
+.faq-item.open .faq-a{ max-height: 260px; padding-bottom:15px; }
+.faq-item.faq-large.open .faq-a{ max-height: 640px; overflow-y:auto; }
+
+/* ▼ 週間スケジュールFAQ用：学部別タイムテーブル ▼ */
+.week-scroll{ display:flex; gap:14px; overflow-x:auto; padding:8px 2px 4px; }
+.week-card{ flex:0 0 260px; background:#fbfdff; border:1px solid var(--line); border-radius: var(--radius-m); padding:12px; }
+.week-card h4{ margin:0 0 8px; font-size:.82rem; color:var(--sky-dark); text-align:center; }
+.week-table{ border-collapse:collapse; width:100%; font-size:.62rem; }
+.week-table th, .week-table td{ border:1px solid var(--line); text-align:center; padding:3px 1px; }
+.week-table th{ background:var(--sky-soft); color:var(--sky-dark); font-weight:700; }
+.week-table td.cell-lecture{ background:#DCF6E3; }
+.week-table td.cell-work{ background:#FBDCE8; }
+.week-table td.cell-circle{ background:#DCE9FB; }
+.week-legend{ display:flex; gap:10px; justify-content:center; margin-top:10px; font-size:.72rem; flex-wrap:wrap; }
+.week-legend span{ display:flex; align-items:center; gap:4px; }
+.week-legend i{ display:inline-block; width:12px; height:12px; border-radius:3px; }
+
+footer.mock-footer{ background:#fff; border-top:1px solid var(--line); text-align:center; padding:24px 20px; font-size:.76rem; color:#999; }
+
+/* ===== v6 追加 ===== */
+.todo{ color:#999; font-size:.8em; }
+.todo-block{ color:#999; font-style:italic; }
+.inline-link{ color:var(--sky-dark); font-weight:700; text-decoration:underline; }
+.work-grid{ align-items:start; }
+.work-card.open .work-body{ max-height: 900px; }
+.work-head h3{ line-height:1.5; }
+.work-badge-hot{ z-index:3; }
+.people-card{ flex:0 0 260px; display:flex; flex-direction:column; }
+.people-card img{ width:100%; height:220px; object-fit:cover; }
+.people-card .quote{ font-weight:700; color:var(--ink); line-height:1.6; margin-bottom:12px; }
+.team-tag{ display:inline-block; font-size:.68rem; font-weight:900; color:#fff; background:var(--sky); padding:2px 10px; border-radius:999px; margin-bottom:6px; }
+.voice-open{ background:none; border:2px solid var(--sky); color:var(--sky-dark); font-weight:900; font-size:.8rem; padding:8px 14px; border-radius:999px; cursor:pointer; width:100%; }
+.voice-open:hover{ background:var(--sky-soft); }
+.voice-dialog{ border:none; border-radius:var(--radius-m); padding:24px 22px 28px; width:min(560px, 92vw); max-height:86vh; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+.voice-dialog::backdrop{ background:rgba(15,38,54,.55); }
+.voice-close{ position:absolute; right:12px; top:8px; background:none; border:none; font-size:1.8rem; cursor:pointer; color:#888; }
+.voice-dialog .name{ font-weight:900; color:var(--sky-dark); font-size:1.05rem; }
+.voice-dialog .dept{ font-size:.78rem; color:#888; margin-bottom:10px; }
+.vd-head{ font-weight:900; font-size:1rem; line-height:1.6; margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+.voice-dialog h4{ margin:16px 0 6px; font-size:.88rem; color:var(--sky-dark); padding-left:10px; border-left:4px solid var(--red); line-height:1.5; }
+.voice-dialog p{ margin:0; font-size:.86rem; color:#444; }
+
+/* 固定CTA・固定クイックナビ */
+.fixed-cta{ position:fixed; right:14px; bottom:14px; z-index:50; width:84px; height:84px; border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--red-dark)); color:#fff; font-weight:900; font-size:.72rem; line-height:1.35;
+  display:flex; align-items:center; justify-content:center; text-align:center; text-decoration:none;
+  box-shadow:0 8px 20px rgba(232,65,47,.45); }
+.quick-nav{ position:fixed; top:0; left:0; right:0; z-index:49; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line);
+  display:flex; justify-content:center; gap:4px; padding:6px 8px; transform:translateY(-100%); transition:transform .3s ease; }
+.quick-nav.show{ transform:translateY(0); }
+.quick-nav a{ text-decoration:none; color:var(--sky-dark); font-weight:700; font-size:.78rem; padding:6px 12px; border-radius:999px; }
+.quick-nav a:hover{ background:var(--sky-soft); }
+@media (max-width:480px){ .quick-nav a{ font-size:.7rem; padding:6px 8px; } .fixed-cta{ width:72px; height:72px; font-size:.64rem; } }
+
+/* ===== v7 デザインブラッシュアップ =====
+   参考：大妻女子大（英字見出し＋矢印リンク＋繰り返しCTA）／舟伏（日英二層の見出し・SCROLL・丸み・装飾）／
+   採用サイトのポップ系（ベース1〜2色＋補色、丸ゴシック、角丸、写真の切り抜き） */
+body{ overflow-x:hidden; }
+h1,h2,h3,h4{ font-family:'Zen Maru Gothic','Zen Kaku Gothic New','Noto Sans JP',sans-serif; }
+
+/* 見出し：大きな英字＋日本語の二層構成 */
+.section-head{ margin-bottom:40px; }
+.section-eyebrow{
+  font-family:'Zen Maru Gothic',sans-serif; font-weight:900; text-transform:uppercase;
+  font-size:clamp(2.1rem,9vw,3.2rem); letter-spacing:.06em; line-height:1.1;
+  color:var(--sky); opacity:.95;
+}
+.section-head h2{
+  display:inline-block; position:relative; font-size:clamp(1.1rem,3.4vw,1.4rem); margin:8px 0 12px;
+  padding:4px 18px; color:var(--ink); background:linear-gradient(transparent 58%, var(--yellow) 58%);
+}
+.section-head p{ margin-top:6px; }
+
+/* ヒーロー：ドット背景＋装飾円＋非対称の角丸写真 */
+.hero{ position:relative; overflow:hidden;
+  background:
+    radial-gradient(circle, rgba(41,171,226,.18) 1.6px, transparent 1.8px) 0 0/22px 22px,
+    linear-gradient(180deg, var(--sky-soft) 0%, #fff 100%); }
+.hero::before,.hero::after{ content:""; position:absolute; border-radius:50%; z-index:0; }
+.hero::before{ width:220px; height:220px; right:-70px; top:90px; background:var(--yellow); opacity:.35; }
+.hero::after{ width:160px; height:160px; left:-60px; top:380px; background:var(--sky); opacity:.18; }
+.hero > *{ position:relative; z-index:1; }
+.hero-photo img{ border-radius:28px 120px 28px 28px; }
+.tags-overlay{ border-radius:0 0 28px 28px; }
+.catch h1{ font-weight:900; }
+.catch h1 .accent::after{ height:.3em; bottom:.12em; }
+
+/* コラージュ：傾けた写真（ポラロイド風） */
+.collage{ gap:18px; padding:14px 20px 4px; }
+.collage img{ border:6px solid #fff; border-radius:16px; transition:transform .25s ease; }
+.collage img:nth-child(1){ transform:rotate(-3deg); }
+.collage img:nth-child(2){ transform:rotate(2.5deg) translateY(8px); }
+.collage img:nth-child(3){ transform:rotate(-2deg) translateY(4px); }
+.collage img:nth-child(4){ transform:rotate(3deg) translateY(10px); }
+.collage img:hover{ transform:rotate(0) scale(1.03); }
+
+/* SCROLL表示 */
+.scroll-ind{ display:flex; flex-direction:column; align-items:center; gap:6px; margin-top:34px;
+  font-family:'Zen Maru Gothic',sans-serif; font-weight:900; font-size:.72rem; letter-spacing:.3em; color:var(--sky-dark); }
+.scroll-ind i{ display:block; width:2px; height:38px; background:linear-gradient(var(--sky-dark),transparent); animation:scrollline 1.8s ease-in-out infinite; transform-origin:top; }
+@keyframes scrollline{ 0%{transform:scaleY(0);opacity:1} 70%{transform:scaleY(1);opacity:1} 100%{transform:scaleY(1);opacity:0} }
+
+/* ボタン：矢印付き（大妻女子大の矢印リンクを参考） */
+.btn-primary{ padding:16px 48px; font-family:'Zen Maru Gothic',sans-serif; }
+.btn-primary::after{ content:"→"; margin-left:.7em; display:inline-block; transition:transform .2s ease; }
+.btn-primary:hover::after{ transform:translateX(5px); }
+.btn-primary.small{ padding:12px 30px; }
+
+/* 波形の区切り */
+section.section-alt{ position:relative; margin:44px 0; }
+section.section-alt::before,section.section-alt::after{
+  content:""; position:absolute; left:0; right:0; height:40px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V22C100 4 200 4 300 20S500 38 600 22 800 2 900 18s200 20 300 4V40z' fill='%23EAF7FE'/%3E%3C/svg%3E") center/100% 100% no-repeat; pointer-events:none; }
+section.section-alt::before{ top:-39px; }
+section.section-alt::after{ bottom:-39px; transform:scaleY(-1); }
+
+/* 文章・メッセージ */
+.intro-lead{ line-height:2; font-size:.96rem; }
+.message-block{ border:none; box-shadow:0 10px 30px rgba(15,126,176,.1); border-radius:28px; }
+.message-photo{ border-radius:50% 50% 50% 14px; box-shadow:0 0 0 5px var(--yellow); }
+
+/* OUR WORK：丸い開閉ボタン・キーワードにマーカー */
+.work-card{ border:none; border-top:none; border-radius:28px; box-shadow:0 8px 26px rgba(15,126,176,.1); }
+.work-card.featured{ box-shadow:0 0 0 3px var(--red), 0 12px 28px rgba(232,65,47,.16); }
+.work-head::after{ content:"+"; right:18px; top:22px; width:34px; height:34px; border-radius:50%;
+  background:var(--sky); color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.3rem; line-height:1; }
+.work-card.open .work-head::after{ content:"−"; background:var(--red); }
+.work-head .keyword{ background:linear-gradient(transparent 62%, rgba(255,201,74,.75) 62%); padding:0 2px; }
+.work-num{ font-family:'Zen Maru Gothic',sans-serif; letter-spacing:.08em; }
+.work-head::before{ content:"more"; position:absolute; right:60px; top:28px; font-size:.7rem; font-weight:900; letter-spacing:.12em; color:var(--sky-dark); }
+.work-card.open .work-head::before{ content:"close"; color:var(--red-dark); }
+
+/* 先輩の声：丸写真＋吹き出し */
+.people-card{ border:none; border-radius:28px; box-shadow:0 8px 24px rgba(15,126,176,.12); text-align:center; padding-top:22px; }
+.people-card img{ width:128px; height:128px; margin:0 auto; border-radius:50%; box-shadow:0 0 0 5px #fff, 0 0 0 9px var(--yellow); }
+.people-card .body{ padding:18px 16px 18px; display:flex; flex-direction:column; align-items:center; flex:1; }
+.people-card .quote{ position:relative; background:var(--sky-soft); border-radius:16px; padding:12px 12px; font-size:.82rem; text-align:left; margin:12px 0 14px; flex:1; }
+.people-card .quote::before{ content:""; position:absolute; top:-8px; left:50%; margin-left:-8px; border:8px solid transparent; border-top:0; border-bottom-color:var(--sky-soft); }
+.people-card .name{ font-size:1rem; }
+.voice-open::after{ content:" →"; }
+
+/* 雇用条件・フロー */
+.flow{ gap:26px; }
+.flow-step{ border:none; border-radius:24px; box-shadow:0 8px 22px rgba(15,126,176,.1); }
+.flow-step::before{ font-family:'Zen Maru Gothic',sans-serif; letter-spacing:.1em; }
+@media (min-width:821px){
+  .flow-step:not(:last-child)::after{ content:""; position:absolute; right:-20px; top:50%; margin-top:-8px;
+    border:8px solid transparent; border-left:12px solid var(--sky); border-right:0; }
+}
+.faq-item{ border:none; border-radius:16px; box-shadow:0 3px 12px rgba(15,126,176,.08); }
+.faq-category{ border-left:none; background:var(--sky-soft); border-radius:999px; padding:6px 16px; display:inline-block; font-size:.92rem; }
+
+/* 微調整 */
+.tags-overlay{ left:20px; right:20px; bottom:0; }
+.hero::before{ top:30px; right:-110px; opacity:.28; }
+.hero-photo + .cap, .cap{ margin-top:14px; }
+.section-head h2{ line-height:1.5; }
+.work-grid{ display:block; columns:2; column-gap:20px; }
+.work-card{ break-inside:avoid; margin-bottom:20px; }
+.work-head .keyword{ display:inline; box-decoration-break:clone; -webkit-box-decoration-break:clone; line-height:1.9; }
+@media (max-width:700px){ .work-grid{ columns:1; } }
+.work-card .work-badge-hot{ right:auto; left:72px; top:22px; }
+.people-scroll{ padding:14px 8px 30px; }
+.cap{ padding:0 20px; text-align:center; margin-top:14px !important; }
+
+/* 固定CTA：呼吸するアニメーション */
+.fixed-cta{ animation:pulse 2.6s ease-in-out infinite; font-family:'Zen Maru Gothic',sans-serif; }
+@keyframes pulse{ 0%,100%{ box-shadow:0 8px 20px rgba(232,65,47,.45), 0 0 0 0 rgba(232,65,47,.35);} 50%{ box-shadow:0 8px 20px rgba(232,65,47,.45), 0 0 0 12px rgba(232,65,47,0);} }
+@media (prefers-reduced-motion:reduce){ .fixed-cta,.scroll-ind i{ animation:none; } .reveal{ transition:none; } }
+
+/* ===== v8：ChatGPT案（ヒーロー大写真・斜め見出し・ブロブ形・スライド）を取り込み ===== */
+:root{ --navy:#1D3C72; }
+html{ scroll-padding-top:56px; }
+body{ color:var(--navy); }
+.todo,.todo-block{ color:#8a93a6; }
+
+/* 共通見出し：小さな斜め英字＋大きな斜め日本語＋黄色のスワッシュ */
+.section-head{ text-align:left; max-width:none; margin:0 0 34px; }
+.section-eyebrow{ display:inline-block; font-size:.95rem; letter-spacing:.3em; color:var(--sky-dark); opacity:1;
+  transform:rotate(-3deg); transform-origin:left bottom; position:relative; padding-bottom:8px; }
+.section-eyebrow::after{ content:""; position:absolute; left:0; bottom:0; width:min(260px,70vw); height:2px;
+  background:linear-gradient(90deg,var(--sky),rgba(41,171,226,0)); }
+.section-head h2{ display:block; background:none; padding:0; margin:12px 0 8px; color:var(--navy);
+  font-size:clamp(1.8rem,7.6vw,2.7rem); font-weight:900; line-height:1.35; transform:rotate(-2.5deg); transform-origin:left bottom; }
+.section-head h2::after{ content:""; display:block; width:min(300px,75%); height:6px; margin-top:6px; border-radius:6px;
+  background:var(--yellow); transform:skewX(-24deg); }
+.section-head p{ color:#44506b; }
+.section-eyebrow + h2{ }
+
+/* ヒーロー */
+.hero8{ position:relative; overflow:hidden; background:#fff; padding-bottom:6px; }
+.hero8 .blob{ position:absolute; z-index:0; background:linear-gradient(135deg,#BFE6F8,#8FD3F1); opacity:.7; }
+.hero8 .b1{ width:240px; height:160px; left:-50px; top:-60px; border-radius:50% 60% 50% 40%/60% 50% 60% 40%; }
+.hero8 .b2{ width:200px; height:210px; right:-70px; top:44%; border-radius:55% 45% 60% 40%/50% 60% 40% 50%; opacity:.5; }
+.hero8 .b3{ width:260px; height:180px; left:-70px; bottom:90px; border-radius:60% 40% 55% 45%/50% 45% 55% 50%; opacity:.4; }
+.hero8-bg{ position:absolute; z-index:0; top:0; right:0; width:100%; height:560px; }
+.hero8-bg img{ width:100%; height:100%; object-fit:cover; object-position:right top; }
+.hero8-bg::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.88) 30%,rgba(255,255,255,0) 66%),
+             linear-gradient(0deg,#fff 0%,rgba(255,255,255,0) 26%); }
+.hero8-top{ position:relative; z-index:3; display:flex; justify-content:space-between; align-items:flex-start; padding:16px 20px 0; max-width:1180px; margin:0 auto; }
+.brand8{ font-size:.78rem; font-weight:700; line-height:1.5; color:var(--navy); }
+.brand8 .en{ display:block; font-size:.62rem; letter-spacing:.24em; color:var(--sky-dark); font-weight:900; margin-bottom:2px; }
+.menu-btn{ width:48px; height:48px; border-radius:50%; border:none; background:rgba(255,255,255,.85); cursor:pointer;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:6px; box-shadow:0 4px 14px rgba(15,126,176,.18); }
+.menu-btn i{ display:block; width:22px; height:2.5px; background:var(--navy); border-radius:2px; }
+.menu-btn i:nth-child(2){ width:16px; align-self:flex-end; margin-right:13px; }
+
+.hero8-copy{ position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:34px 20px 0; }
+.bubble8{ position:relative; display:inline-block; background:var(--yellow); color:var(--navy); font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:900; font-size:1.2rem; padding:8px 22px; border-radius:26px 26px 26px 6px; transform:rotate(-6deg); box-shadow:0 6px 14px rgba(255,201,74,.45); }
+.bubble8 .spark{ position:absolute; right:-40px; top:-22px; width:38px; height:38px; }
+.hero8 h1{ font-family:'Zen Maru Gothic',sans-serif; color:var(--navy); font-weight:900; line-height:1.18; margin:18px 0 0;
+  font-size:clamp(2.7rem,13.4vw,4.6rem); transform:rotate(-4deg); transform-origin:left top; position:relative; letter-spacing:.02em; width:fit-content; }
+.hero8 h1::after{ content:""; display:block; width:80%; height:7px; border-radius:7px; background:var(--yellow); margin-top:6px; transform:rotate(-1deg); }
+.hero8 .lead{ margin:30px 0 16px; font-size:clamp(.92rem,3.8vw,1.08rem); font-weight:700; color:var(--navy); line-height:1.9; max-width:30em; }
+.tags8{ list-style:none; margin:0 0 18px; padding:0; display:flex; flex-wrap:wrap; gap:8px; max-width:34em; }
+.tags8 li{ font-size:.76rem; font-weight:700; color:var(--sky-dark); background:rgba(255,255,255,.82); border:1.5px solid var(--sky);
+  border-radius:999px; padding:5px 13px; }
+.hero8-cta .btn-primary{ background:linear-gradient(135deg,#F0532F,#E8412F); }
+.hero8-cta .btn-primary::after{ content:"›"; font-size:1.25em; line-height:1; vertical-align:-.07em; }
+.hero8-cta .tel{ margin:12px 0 0; font-size:.72rem; color:#5a6783; }
+
+/* スライドショー */
+.slider8{ position:relative; z-index:2; margin-top:26px; }
+.slider8-track{ position:relative; display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:12px 20px 22px;
+  scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.slider8-track::-webkit-scrollbar{ display:none; }
+.slide8{ margin:0; flex:0 0 min(76vw,360px); aspect-ratio:4/3; scroll-snap-align:center; overflow:hidden; border:5px solid #fff;
+  box-shadow:0 12px 26px rgba(15,126,176,.2); transition:transform .4s ease; }
+.slide8 img{ width:100%; height:100%; object-fit:cover; }
+.slide8:nth-child(1){ border-radius:46% 54% 42% 58%/54% 44% 56% 46%; }
+.slide8:nth-child(2){ border-radius:30px 56px 34px 52px; transform:translateY(8px); }
+.slide8:nth-child(3){ border-radius:54% 46% 56% 44%/46% 56% 44% 54%; }
+.slide8:nth-child(4){ border-radius:50px 30px 54px 32px; transform:translateY(8px); }
+.slide8:nth-child(5){ border-radius:44% 56% 50% 50%/58% 42% 58% 42%; }
+.slider8-dots{ display:flex; justify-content:center; gap:8px; margin-top:2px; }
+.slider8-dots button{ width:9px; height:9px; border-radius:99px; border:none; padding:0; background:#bfe0f1; cursor:pointer; transition:width .25s ease, background .25s ease; }
+.slider8-dots button.on{ width:26px; background:var(--sky); }
+.slider8 .scroll-ind{ margin-top:22px; }
+.toc8{ padding:30px 0 0; }
+.toc8 .toc-grid{ margin-top:0; }
+
+/* メニュー */
+.menu8{ position:fixed; inset:0; z-index:80; background:rgba(235,247,254,.98); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:6px; }
+.menu8[hidden]{ display:none; }
+.menu8 a{ font-family:'Zen Maru Gothic',sans-serif; font-weight:900; font-size:1.25rem; color:var(--navy); text-decoration:none; padding:10px 24px; }
+.menu8 a.menu8-cta{ margin-top:16px; background:var(--red); color:#fff; border-radius:999px; font-size:1rem; padding:14px 34px; }
+.menu8-close{ position:absolute; right:18px; top:14px; width:48px; height:48px; border-radius:50%; border:none; background:#fff; font-size:1.8rem; cursor:pointer; color:var(--navy); box-shadow:0 4px 14px rgba(15,126,176,.18); }
+
+/* OUR WORK 導入 */
+.work8-intro{ display:grid; grid-template-columns:1fr; gap:26px; align-items:center; margin-bottom:26px; }
+.work8-title{ font-family:'Zen Maru Gothic',sans-serif; font-weight:900; color:var(--navy); font-size:clamp(1.9rem,8.4vw,3rem); line-height:1.35;
+  margin:12px 0 10px; transform:rotate(-2.5deg); transform-origin:left bottom; }
+.work8-title::after{ content:""; display:block; width:min(320px,80%); height:6px; margin-top:6px; border-radius:6px; background:var(--yellow); transform:skewX(-24deg); }
+.work8-text p{ margin:16px 0 0; font-size:.95rem; line-height:2; color:#44506b; }
+.work8-photo{ position:relative; }
+.work8-photo img{ width:100%; aspect-ratio:5/4; object-fit:cover; border-radius:38% 62% 44% 56%/50% 42% 58% 50%; box-shadow:0 14px 30px rgba(15,126,176,.22); }
+.feat-badge{ position:absolute; right:-6px; bottom:-14px; width:112px; height:112px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; font-family:'Zen Maru Gothic',sans-serif; font-weight:900; font-size:.95rem; line-height:1.25; color:var(--navy); transform:rotate(-8deg);
+  background:var(--yellow); box-shadow:0 8px 18px rgba(255,201,74,.55);
+  clip-path:polygon(50% 0,59% 8%,71% 4%,76% 15%,88% 17%,88% 29%,98% 36%,92% 47%,100% 58%,91% 66%,93% 78%,81% 81%,77% 92%,65% 90%,56% 100%,47% 92%,35% 97%,29% 86%,17% 85%,15% 73%,4% 66%,9% 55%,0 45%,8% 36%,5% 24%,17% 20%,21% 9%,33% 11%,41% 2%); }
+.feat-badge small{ font-size:.58rem; letter-spacing:.14em; font-weight:900; }
+@media (min-width:860px){ .work8-intro{ grid-template-columns:1.05fr 1fr; gap:48px; } }
+.work-chips{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:30px 0 12px; }
+.work-chip{ display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:8px; text-align:center; text-decoration:none;
+  background:#fff; color:var(--navy); border-radius:20px; padding:16px 6px 12px; box-shadow:0 6px 18px rgba(15,126,176,.1);
+  font-size:.72rem; font-weight:700; line-height:1.4; transition:transform .15s ease; }
+.work-chip:hover{ transform:translateY(-3px); }
+.work-chip svg{ width:30px; height:30px; color:var(--sky); }
+.work-hint{ text-align:center; font-size:.82rem; color:#5a6783; margin:0 0 22px; }
+@media (max-width:640px){
+  .work-chips{ grid-template-columns:repeat(3,1fr); }
+  .work-chip:nth-child(4),.work-chip:nth-child(5){ grid-column:span 1; }
+  .work-chip{ font-size:.7rem; }
+}
+
+/* 見出し類の色をネイビーへ */
+.work-head h3,.faq-q,.people-card .name,.flow-step h3,.faq-category{ color:var(--navy); }
+.message-q{ color:var(--navy); }
+
+/* 固定ボタン */
+.fixed-cta{ right:78px; bottom:18px; width:auto; height:48px; padding:0 20px; border-radius:999px; font-size:.82rem; white-space:nowrap; }
+.to-top{ position:fixed; right:16px; bottom:18px; z-index:50; width:52px; height:52px; border-radius:50%; background:var(--sky);
+  display:flex; align-items:center; justify-content:center; box-shadow:0 8px 18px rgba(41,171,226,.45); opacity:0; pointer-events:none; transition:opacity .25s ease; }
+.to-top.show{ opacity:1; pointer-events:auto; }
+.to-top svg{ width:26px; height:26px; }
+@media (max-width:480px){ .fixed-cta{ width:auto; height:44px; font-size:.74rem; padding:0 16px; right:74px; } }
+
+/* PC */
+@media (min-width:900px){
+  .hero8-bg{ width:68%; height:760px; }
+  .hero8-bg::after{ background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.7) 22%,rgba(255,255,255,0) 55%), linear-gradient(0deg,#fff 0%,rgba(255,255,255,0) 22%); }
+  .hero8-copy{ padding-top:60px; }
+  .hero8 h1{ font-size:5.2rem; }
+  .hero8 .lead{ font-size:1.12rem; }
+  .slider8{ margin-top:40px; }
+  .slider8-track{ padding-left:max(20px, calc((100vw - 1080px)/2)); }
+}
+
+/* ===== v9 修正 ===== */
+/* ヒーロー：写真とキャッチコピーを重ねない（スマホは縦並び、PCは左右） */
+.hero8-main{ position:relative; z-index:2; max-width:1180px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr); }
+.hero8-copy{ max-width:none; margin:0; }
+.hero8-bg{ position:relative; top:auto; right:auto; width:auto; height:280px; margin:26px 20px 0; z-index:1; border:5px solid #fff;
+  border-radius:42% 58% 46% 54%/52% 44% 56% 48%; overflow:hidden; box-shadow:0 14px 30px rgba(15,126,176,.22); }
+.hero8-bg::after{ display:none; }
+.hero8-bg img{ object-position:center; }
+.hero8 .lead{ margin-bottom:0; }
+.hero8-cta-wrap{ position:relative; z-index:2; padding:22px 20px 0; }
+@media (min-width:900px){
+  .hero8-main{ grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); grid-template-areas:"copy photo" "cta photo"; column-gap:40px; align-items:start; }
+  .hero8-copy{ grid-area:copy; }
+  .hero8-bg{ grid-area:photo; width:auto; height:520px; margin:50px 20px 0 0; }
+  .hero8-cta-wrap{ grid-area:cta; }
+}
+/* 項目カード（目次）を小さく */
+.toc8{ padding:22px 0 0; }
+.toc8 .toc-grid{ max-width:640px; gap:10px; }
+.toc8 .toc-card{ padding:14px 8px 12px; border-radius:16px; box-shadow:0 4px 12px rgba(15,126,176,.08); }
+.toc8 .toc-card::after{ display:none; }
+.toc8 .toc-icon-circle{ width:38px; height:38px; margin:0 auto 6px; }
+.toc8 .toc-icon-circle svg{ width:19px; height:19px; }
+.toc8 .toc-label{ font-size:.8rem; margin-bottom:2px; }
+.toc8 .toc-arrow-icon{ width:14px; height:14px; }
+@media (max-width:480px){ .toc8 .toc-grid{ gap:6px; } .toc8 .toc-card{ padding:8px 4px; min-height:60px; } .toc8 .toc-label{ font-size:.62rem; } }
+.work8-intro{ margin-bottom:10px; }
+.work-hint{ text-align:left; margin:6px 0 22px; }
+@media (prefers-reduced-motion:reduce){ .slide8{ transition:none; } }
+
+/* ===== v10：MTG（10/31）の意見を反映 ===== */
+/* オープニング写真：約1秒表示してフェードアウト */
+.splash{ position:fixed; inset:0; z-index:300; background:#fff; animation:splashOut .6s ease 1s forwards; }
+.splash img{ width:100%; height:100%; object-fit:cover; }
+.splash p{ position:absolute; left:0; right:0; bottom:12%; margin:0; text-align:center; color:#fff; font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:900; font-size:1.2rem; letter-spacing:.1em; text-shadow:0 2px 14px rgba(0,0,0,.45); }
+@keyframes splashOut{ to{ opacity:0; visibility:hidden; } }
+@media (prefers-reduced-motion:reduce){ .splash{ display:none; } }
+
+/* ヒーロー：4種類が左右に回る（スワイプでは動かさず、矢印・ドットで操作） */
+.hstage{ position:relative; z-index:2; max-width:1180px; margin:0 auto; padding-top:4px; }
+.hstage-view{ position:relative; overflow:hidden; }
+.hstage-track{ display:flex; transition:transform .7s cubic-bezier(.4,.1,.2,1); }
+.hslide{ flex:0 0 100%; min-width:0; padding-bottom:6px; }
+.hslide .hero8-main{ max-width:none; margin:0; }
+.hslide .hero8-copy{ padding-top:26px; }
+.hmedia{ position:relative; z-index:1; height:280px; margin:26px 20px 0; border:5px solid #fff; overflow:hidden; box-shadow:0 14px 30px rgba(15,126,176,.22); }
+.hmedia img{ width:100%; height:100%; object-fit:cover; }
+.hhead{ margin:18px 0 0; font-family:'Zen Maru Gothic',sans-serif; font-weight:900; color:var(--navy); line-height:1.25;
+  font-size:clamp(2.3rem,11vw,4rem); transform:rotate(-4deg); transform-origin:left top; width:fit-content; }
+.hhead::after{ content:""; display:block; width:80%; height:7px; border-radius:7px; background:var(--yellow); margin-top:6px; transform:rotate(-1deg); }
+.hmini{ margin:26px 0 0; font-size:clamp(.92rem,3.8vw,1.08rem); font-weight:700; line-height:1.9; color:var(--navy); max-width:28em; }
+.catch-card{ border-radius:46% 54% 42% 58%/54% 44% 56% 46%; background:linear-gradient(135deg,#9BD9F3,#29ABE2); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.catch-sub{ display:inline-block; background:var(--yellow); color:var(--navy); font-family:'Zen Maru Gothic',sans-serif; font-weight:900; font-size:1.05rem; padding:6px 18px; border-radius:22px 22px 22px 5px; transform:rotate(-6deg); margin-bottom:12px; }
+.catch-big{ font-family:'Zen Maru Gothic',sans-serif; font-weight:900; color:#fff; font-size:clamp(2.2rem,10vw,3.6rem); line-height:1.25; text-shadow:0 3px 12px rgba(15,60,110,.25); }
+.collage8{ display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0; border:none; background:transparent; box-shadow:none; overflow:visible; }
+.collage8 figure{ margin:0; overflow:hidden; border:4px solid #fff; box-shadow:0 8px 18px rgba(15,126,176,.2); }
+.collage8 figure:nth-child(1){ border-radius:30px 12px 12px 12px; }
+.collage8 figure:nth-child(2){ border-radius:12px 30px 12px 12px; }
+.collage8 figure:nth-child(3){ border-radius:12px 12px 12px 30px; }
+.collage8 figure:nth-child(4){ border-radius:12px 12px 30px 12px; }
+.collage8 img{ width:100%; height:100%; object-fit:cover; }
+.photo8{ border-radius:44% 56% 50% 50%/58% 42% 58% 42%; }
+.hslide .hero8-bg{ margin:26px 20px 0; }
+
+/* 矢印：薄く表示（スマホは写真の左右、PCは左右端の中央） */
+.harrow{ position:absolute; z-index:5; bottom:154px; width:38px; height:38px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(255,255,255,.62); color:var(--sky-dark); display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 10px rgba(15,126,176,.2); opacity:.7; transition:opacity .2s ease, transform .2s ease; }
+.harrow svg{ width:20px; height:20px; }
+.harrow:hover,.harrow:focus-visible{ opacity:1; }
+.harrow:active{ transform:scale(.92); }
+.harrow.prev{ left:28px; } .harrow.next{ right:28px; }
+.hdots{ display:flex; justify-content:center; gap:12px; margin:12px 0 0; }
+.hdots button{ width:10px; height:10px; border-radius:50%; padding:0; cursor:pointer; background:transparent; border:2px solid var(--sky); transition:background .25s ease, transform .25s ease; }
+.hdots button.on{ background:var(--sky); transform:scale(1.15); }
+.hero8-cta-wrap{ max-width:1180px; margin:0 auto; width:100%; padding-top:18px; }
+.hero8 > .scroll-ind{ position:relative; z-index:2; margin:24px 0 8px; }
+@media (min-width:900px){
+  .hslide{ padding:0 56px 6px; }
+  .hslide .hero8-main{ grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); grid-template-areas:"copy photo"; column-gap:40px; }
+  .hslide .hero8-copy{ grid-area:copy; padding-left:0; padding-top:40px; }
+  .hslide .hero8-bg,.hslide .hmedia{ grid-area:photo; height:520px; margin:20px 0 0; }
+  .hhead{ font-size:3.7rem; }
+  .harrow{ bottom:auto; top:50%; margin-top:-19px; width:44px; height:44px; }
+  .harrow.prev{ left:8px; } .harrow.next{ right:8px; }
+  .hero8-cta-wrap{ padding-left:76px; padding-right:76px; }
+}
+
+/* 仕事紹介：PCは「横動画・マンガ新作」を縦に並べ、その横に縦動画の縦長カード */
+.work-thumb.vertical{ aspect-ratio:16/9; }
+.work-sample{ margin:6px 22px 22px; }
+.work-sample img{ width:100%; border-radius:16px; box-shadow:0 8px 20px rgba(15,126,176,.18); }
+.work-sample figcaption{ margin-top:8px; text-align:center; font-size:.78rem; font-weight:700; color:#5a6783; }
+.work-card.open .work-body{ max-height:1400px; }
+@media (min-width:860px){
+  .work-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:20px; columns:auto; align-items:start; }
+  .work-card{ margin-bottom:0; }
+  #work-1{ grid-column:1 / span 4; grid-row:1; }
+  #work-3{ grid-column:1 / span 4; grid-row:2; }
+  #work-2{ grid-column:5 / span 2; grid-row:1 / span 2; }
+  #work-4{ grid-column:1 / span 3; grid-row:3; }
+  #work-5{ grid-column:4 / span 3; grid-row:3; }
+  #work-2 .work-thumb.vertical{ aspect-ratio:9/14; }
+}
+
+/* 先輩の声：文字を大きく／写真 */
+.people-card{ flex:0 0 290px; }
+.people-card .name{ font-size:1.15rem; }
+.people-card .dept{ font-size:.86rem; }
+.people-card .quote{ font-size:1rem; line-height:1.65; }
+.team-tag{ font-size:.78rem; }
+.voice-open{ font-size:.95rem; padding:10px 14px; }
+.voice-dialog{ width:min(620px,92vw); }
+.voice-dialog .name{ font-size:1.2rem; }
+.voice-dialog .dept{ font-size:.9rem; }
+.vd-head{ font-size:1.1rem; }
+.voice-dialog h4{ font-size:1.02rem; }
+.voice-dialog p{ font-size:1rem; line-height:1.85; }
+.vd-photo{ margin:16px 0; }
+.vd-photo img{ width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:18px; box-shadow:0 8px 20px rgba(15,126,176,.18); }
+.vd-photo figcaption{ margin-top:6px; font-size:.8rem; color:#6a7690; text-align:center; }
+.vd-top{ margin-top:0; }
+.vd-top img{ aspect-ratio:16/10; }
+
+/* SNS */
+.sns-note{ margin:14px 0 0; font-weight:900; font-size:1rem; color:var(--navy); }
+
+/* ===== v11：メインビジュアルを主役に（画面の約8割）／回る素材は3種類 ===== */
+.hero8{ position:relative; background:#fff; }
+.hero8 .blob{ display:none; }
+.hero8-top{ position:absolute; left:0; right:0; top:0; z-index:6; padding:14px 20px 0; max-width:1180px; margin:0 auto; pointer-events:none; }
+.brand8{ color:#fff; text-shadow:0 1px 10px rgba(10,30,50,.55); }
+.brand8 .en{ color:#fff; }
+.hstage{ max-width:none; margin:0; padding:0; }
+.hstage-view{ height:clamp(520px, calc(80svh - 56px), 800px); }
+.hstage-view::before{ content:""; position:absolute; left:0; right:0; top:0; height:120px; z-index:4; pointer-events:none;
+  background:linear-gradient(180deg, rgba(10,30,50,.45), rgba(10,30,50,0)); }
+.hstage-track{ height:100%; }
+.hslide{ position:relative; height:100%; padding:0 !important; overflow:hidden; }
+.hphoto{ position:absolute; inset:0; }
+.hphoto img{ width:100%; height:100%; object-fit:cover; object-position:center 25%; }
+.hcollage{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; background:#fff; }
+.hcollage img{ object-position:center; }
+.hslide::after{ content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:linear-gradient(0deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.88) 20%, rgba(255,255,255,0) 52%); }
+.hcopy{ position:absolute; z-index:3; left:0; right:0; bottom:22px; padding:0 20px; }
+.hslide-main .hcopy{ bottom:26px; }
+.hslide-main .hcopy h1{ margin:12px 0 0; font-size:clamp(2.6rem,12.4vw,4.4rem); transform:rotate(-3deg); transform-origin:left bottom; }
+.hslide-main .hcopy h1::after{ width:70%; }
+.hslide-main .hcopy .lead{ margin:20px 0 0; font-size:clamp(.82rem,3.5vw,1rem); line-height:1.8; }
+.hcap{ bottom:34px; }
+.hcap-tag{ display:inline-block; background:var(--yellow); color:var(--navy); font-family:'Zen Maru Gothic',sans-serif; font-weight:900; font-size:1.05rem;
+  padding:6px 18px; border-radius:22px 22px 22px 5px; transform:rotate(-4deg); box-shadow:0 5px 12px rgba(255,201,74,.45); }
+.hcap p{ margin:14px 0 0; font-weight:700; line-height:1.8; color:var(--navy); font-size:clamp(.95rem,3.8vw,1.1rem); max-width:26em; }
+.harrow{ top:50%; bottom:auto; margin-top:-19px; width:40px; height:40px; }
+.harrow.prev{ left:12px; } .harrow.next{ right:12px; }
+.hdots{ margin:12px 0 0; }
+.hero8-cta-wrap{ padding-top:16px; }
+@media (min-width:900px){
+  .hstage-view{ height:clamp(560px, calc(80svh - 56px), 800px); }
+  .hphoto img{ object-position:center 30%; }
+  .hcopy{ left:50%; right:auto; width:min(1180px,100%); transform:translateX(-50%); padding:0 76px; bottom:34px; }
+  .hslide-main .hcopy h1{ font-size:5.4rem; }
+  .hslide-main .hcopy .lead{ font-size:1.12rem; }
+  .hslide::after{ background:linear-gradient(0deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.82) 16%, rgba(255,255,255,0) 44%),
+                             linear-gradient(90deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 45%); }
+  .harrow{ width:46px; height:46px; margin-top:-23px; }
+  .harrow.prev{ left:20px; } .harrow.next{ right:20px; }
+  .hero8-cta-wrap{ padding-left:76px; padding-right:76px; }
+}
+
+.tv-link{ display:inline-flex; align-items:center; gap:7px; vertical-align:middle; margin:0 2px; padding:3px 8px 3px 4px;
+  border-radius:999px; text-decoration:none; font-weight:900; color:#fff; line-height:1.5;
+  background:linear-gradient(135deg,#FF5A47,#E8412F); box-shadow:0 3px 10px rgba(232,65,47,.35);
+  transition:transform .15s ease, box-shadow .15s ease; }
+.tv-link:hover{ transform:translateY(-2px); box-shadow:0 6px 14px rgba(232,65,47,.45); }
+.tv-ico{ display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:#fff; color:#E8412F; }
+.tv-ico svg{ width:15px; height:15px; }
+.tv-name{ font-family:'Zen Maru Gothic',sans-serif; letter-spacing:.04em; font-size:.95em; }
+.tv-go svg{ width:13px; height:13px; display:block; transition:transform .15s ease; }
+.tv-link:hover .tv-go svg{ transform:translate(2px,-2px); }
+
+/* v13：仕事中の写真は縦長でも顔が切れにくいよう中央寄せ */
+.vd-photo img{ object-position:center 40%; }
+
+/* メインビジュアル：上に「未経験から／学びながら、」、下に「はたらく。／説明」。中央は人物のために空ける */
+.hslide-main::after{ background:
+  linear-gradient(180deg, rgba(12,34,66,.62) 0%, rgba(12,34,66,.30) 24%, rgba(12,34,66,0) 42%),
+  linear-gradient(0deg, rgba(12,34,66,.72) 0%, rgba(12,34,66,.40) 24%, rgba(12,34,66,0) 46%); }
+.hslide-main .hcopy.hcopy-split{ top:0; bottom:0; padding:92px 20px 26px; display:flex; flex-direction:column; align-items:flex-start; }
+.hcopy-split h1{ display:contents; margin:0; }
+.hcopy-split h1::after{ display:none !important; }
+.hcopy-split .bubble8{ margin-top:6px; }
+.hcopy-split .h1a,.hcopy-split .h1b{ display:block; width:fit-content; font-family:'Zen Maru Gothic',sans-serif; font-weight:900; color:#fff;
+  font-size:clamp(2.6rem,12.4vw,4.4rem); line-height:1.15; text-shadow:0 3px 16px rgba(8,24,50,.5); transform:rotate(-3deg); transform-origin:left bottom; }
+.hcopy-split .h1a{ margin-top:14px; }
+.hcopy-split .h1b{ margin-top:auto; }
+.hcopy-split .h1b::after{ content:""; display:block; width:80%; height:7px; border-radius:7px; background:var(--yellow); margin-top:6px; transform:rotate(-1deg); }
+.hslide-main .hcopy-split .lead{ color:#fff; margin:18px 0 0; text-shadow:0 2px 10px rgba(8,24,50,.55); }
+@media (min-width:900px){
+  .hslide-main .hcopy.hcopy-split{ left:0; right:0; width:auto; transform:none; padding:96px max(76px, calc((100% - 1180px)/2 + 76px)) 36px; }
+  .hcopy-split .h1a,.hcopy-split .h1b{ font-size:5.4rem; }
+}
+</style>
+</head>
+<body id="top">
+<div class="splash" aria-hidden="true">
+  <img src="https://picsum.photos/seed/mita-hero8/1000/1200" alt="">
+  <p>ナガセ広報研究所 慶應三田オフィス</p>
+</div>
+<nav class="quick-nav" id="quickNav" aria-label="ページ内メニュー">
+  <a href="#work">仕事内容</a><a href="#people">先輩の声</a><a href="#conditions">雇用条件</a><a href="#faq">よくある質問</a>
+</nav>
+<a class="fixed-cta" href="#">見学会に申し込む</a>
+<a class="to-top" id="toTop" href="#top" aria-label="ページ上部へ戻る"><svg viewBox="0 0 24 24"><polyline points="6 15 12 9 18 15" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<div class="common-banner-placeholder">
+  ここには東進サイト共通のヘッダーが入ります。<br>
+</div>
+
+<header class="hero8">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="hero8-top">
+    <div class="brand8"><span class="en">NAGASE PR LAB</span>ナガセ広報研究所<br>慶應三田オフィス</div>
+  </div>
+
+  <div class="hstage" aria-roledescription="carousel" aria-label="オフィスの紹介（10秒ごとに切り替わります）">
+    <div class="hstage-view">
+      <div class="hstage-track" id="hTrack">
+
+        <!-- 1 メインビジュアル：開いた瞬間に大きく表示。キャッチコピーは写真の下側に軽く重ねる -->
+        <section class="hslide hslide-main" aria-label="1／3 メインビジュアル">
+          <div class="hphoto"><img src="https://picsum.photos/seed/mita-hero8/1200/1400" alt="PCを見ながら笑顔で話す慶應生のインターン生（メインビジュアル・写真差し替え予定）"></div>
+          <div class="hcopy hcopy-split">
+            <div class="bubble8">未経験から
+              <svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30 L16 14 M18 34 L32 22 M24 8 L28 2" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+            </div>
+            <h1><span class="h1a">学びながら、</span><span class="h1b">はたらく。</span></h1>
+            <p class="lead">動画・マンガ・SNS…「伝える力」を、<br>現場で本気で身につける長期インターン</p>
+          </div>
+        </section>
+
+        <!-- 2 コラージュ（虻川さん提供の写真） -->
+        <section class="hslide" aria-label="2／3 コラージュ">
+          <div class="hphoto hcollage">
+            <img src="https://picsum.photos/seed/collage-edit/640/640" alt="動画の編集作業をしている様子（虻川さん撮影・写真差し替え予定）">
+            <img src="https://picsum.photos/seed/collage-mtg/640/640" alt="8人掛けのデスクで笑顔でミーティングしている様子（虻川さん撮影・写真差し替え予定）">
+            <img src="https://picsum.photos/seed/collage-shoot/640/640" alt="取材・撮影中の様子（虻川さん撮影・写真差し替え予定）">
+            <img src="https://picsum.photos/seed/collage-teach/640/640" alt="先輩が後輩に仕事を教えている様子（虻川さん撮影・写真差し替え予定）">
+          </div>
+          <div class="hcopy hcap">
+            <span class="hcap-tag">オフィスの毎日</span>
+            <p>動画編集、取材、打ち合わせ…。学生が主体になって動く、オフィスの日常です。</p>
+          </div>
+        </section>
+
+        <!-- 3 懇親会 -->
+        <section class="hslide" aria-label="3／3 懇親会">
+          <div class="hphoto"><img src="https://picsum.photos/seed/konshinkai/1200/1000" alt="懇親会（BBQ）で笑顔の慶應生（写真差し替え予定）"></div>
+          <div class="hcopy hcap">
+            <span class="hcap-tag">懇親会</span>
+            <p>歓迎会やBBQ、ご飯会など、仕事の外でも仲間と楽しく交流しています。</p>
+          </div>
+        </section>
+
+      </div>
+      <button class="harrow prev" id="hPrev" type="button" aria-label="前の画像へ"><svg viewBox="0 0 24 24"><polyline points="15 5 8 12 15 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="harrow next" id="hNext" type="button" aria-label="次の画像へ"><svg viewBox="0 0 24 24"><polyline points="9 5 16 12 9 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="hdots" id="hDots">
+      <button type="button" aria-label="1枚目（メインビジュアル）"></button>
+      <button type="button" aria-label="2枚目（コラージュ）"></button>
+      <button type="button" aria-label="3枚目（懇親会）"></button>
+    </div>
+  </div>
+
+  <div class="hero8-cta-wrap">
+    <ul class="tags8"><li>#長期インターン</li><li>#未経験者大歓迎</li><li>#時給1,300〜2,200円</li><li>#交通費支給</li></ul>
+    <div class="hero8-cta">
+      <a href="#" class="btn-primary">見学会・説明会に申し込む</a>
+      <p class="tel">※お問い合わせは慶應三田オフィス 03-5738-1111 まで</p>
+    </div>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">SCROLL<i></i></div>
+</header>
+<section class="toc8"><div class="wrap">
+  <div class="toc-grid">
+    <a class="toc-card" href="#work">
+      <span class="toc-icon-circle">
+        <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+      </span>
+      <span class="toc-label">仕事内容</span>
+      <span class="toc-arrow">
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+      </span>
+    </a>
+    <a class="toc-card" href="#people">
+      <span class="toc-icon-circle">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20v-1a8 8 0 0 1 16 0v1"/></svg>
+      </span>
+      <span class="toc-label">先輩の声</span>
+      <span class="toc-arrow">
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+      </span>
+    </a>
+    <a class="toc-card" href="#conditions">
+      <span class="toc-icon-circle">
+        <svg viewBox="0 0 24 24"><path d="M6 2h9l3 3v17H6z"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+      </span>
+      <span class="toc-label">雇用条件</span>
+      <span class="toc-arrow">
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+      </span>
+    </a>
+    <a class="toc-card" href="#faq">
+      <span class="toc-icon-circle">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1.1-1.5 2.2"/><circle cx="12" cy="17" r="1.2" fill="var(--sky-dark)" stroke="none"/></svg>
+      </span>
+      <span class="toc-label">よくある質問</span>
+      <span class="toc-arrow">
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+      </span>
+    </a>
+  </div>
+</div></section>
+
+<section id="about" class="intro-text-section">
+  <div class="wrap">
+    <p class="intro-lead reveal">
+      　広報研究所 慶應三田オフィスは今年で開設9年目<span class="todo"></span>を迎え、東進ハイスクール・東進衛星予備校の公式YouTubeチャンネル<a class="tv-link" href="https://www.youtube.com/@toshintv" target="_blank" rel="noopener"><span class="tv-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><polygon points="9 6.5 17 12 9 17.5" fill="currentColor"/></svg></span><span class="tv-name">東進TV</span><span class="tv-go" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><polyline points="9 7 17 7 17 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>に投稿する大学紹介動画の企画・撮影・編集、広報物（マンガ、ハガキ等）の制作、悩み相談サイトの運営など、幅広い活動をしています。<br><br>
+      　ここで働く学生は全員が現役慶應義塾大学生で、学業やサークルと両立しながら業務に取り組んでいます。一人で悩むのではなく、仲間と一緒に考え、試行錯誤しながら成長できる環境があるため、未経験からでもぐんぐんスキルを伸ばせます。<br><br>
+      　編集力・企画力を身に着けたい方やマネジメントスキルを伸ばしたい方、同じ慶應生の仲間とともに実践的な経験を積みたい方に最適な環境です。経験の有無は問いません。皆さんのご応募を心よりお待ちしています！
+    </p>
+  </div>
+</section>
+
+<section id="message" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">MESSAGE</div>
+      <h2>責任者からのメッセージ</h2>
+    </div>
+    <div class="message-block reveal">
+      <img class="message-photo" src="https://picsum.photos/seed/mita-manager/320/320" alt="責任者の写真（写真差し替え予定）">
+      <div class="message-qa">
+        <div class="message-q">責任者から見た広報研究所とは？</div>
+        <p class="message-a">
+          ナガセ広報研究所 慶應三田オフィスでは、現役の慶應生が、全国の大学を紹介するYouTubeチャンネル「東進TV」に投稿する動画や東進の広報マンガの企画から制作・納品までを担っています。1・2年生は担当案件を自らの手でやりきる力を、3・4年生はチームを率いる力を磨くことのでき、「学びながらはたらく」ことができるユニークな場です。働く学生たちの想いは、新しいことをしたい、普通とは違う経験をしたい、自分を成長させたい、動画編集したいなど様々。君も新しい挑戦をしませんか？
+        </p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sns-follow">
+  <p>Instagram、Xのフォローもお願いします！！</p>
+  <div class="sns-follow-icons">
+    <a href="https://www.instagram.com/keio_toshin_intern/?hl=ja"><img src="https://picsum.photos/seed/igicon2/56/56" alt="Instagram"></a>
+    <a href="https://x.com/nagase_keio2024"><img src="https://picsum.photos/seed/xicon2/56/56" alt="X（旧Twitter）"></a>
+  </div>
+  <p class="sns-note">採用情報の詳細はこちら！</p>
+</div>
+
+<!-- ▼【改善】OUR WORKを大幅拡充：動画チーム／ショート動画チーム／マンガ・取材チーム ▼ -->
+<section id="work" class="section-alt">
+  <div class="wrap">
+    <div class="work8-intro reveal">
+      <div class="work8-text">
+        <div class="section-eyebrow">OUR WORK</div>
+        <h2 class="work8-title">私たちが<br>つくっているもの。</h2>
+        <p>動画やマンガ、SNSなど、多彩なコンテンツを通して、大学の魅力や学生のリアルを発信しています。</p>
+      </div>
+    </div>
+    <div class="work-grid reveal">
+
+      <div id="work-1" class="work-card">
+        <a class="work-thumb" href="https://www.youtube.com/@toshintv" target="_blank" rel="noopener">
+          <img src="https://picsum.photos/seed/toshintv-thumb/640/360" alt="東進TVのサムネイル（実際のチャンネル画像に差し替え予定）">
+          <span class="work-thumb-badge">東進TVを見る ↗</span>
+        </a>
+        <button class="work-head">
+          <span class="work-num">01</span>
+          <h3>学部紹介動画（横動画）の企画・撮影・編集</h3>
+          <div class="keyword">全国の大学の魅力を映像で発信！</div>
+        </button>
+        <div class="work-body">
+          <p>撮影先の選定や大学とのZoomでの打ち合わせ、動画案や撮影台本の作成といった企画段階から一貫して担当します。</p>
+          <p>大学とのやり取りを通してコミュニケーション力が身に付くほか、企画力や構成力も磨かれます。撮影では学生3名ほどで大学を訪問し、教授や学生へのインタビューや動画に使用するインサートカットの撮影を実施。相手の魅力を引き出す質問力が得られるだけでなく、さまざまな大学を訪問してそれぞれの特色や魅力を発見できるのも楽しみの一つです。編集では動画の構成や素材の並べ替え、テロップの挿入などを行います。映像編集の技術はもちろん、視聴者に伝わりやすい動画を制作するための構成力や表現力も伸ばせます。編集経験が無くても研修制度が充実しているので大歓迎です！</p>
+        </div>
+      </div>
+
+      <div id="work-2" class="work-card">
+        <div class="work-thumb vertical"><img src="https://picsum.photos/seed/short-vertical/540/720" alt="ショート（縦）動画のサムネイル（実際の画像に差し替え予定）"></div>
+        <button class="work-head">
+          <span class="work-num">02</span>
+          <h3>ショート動画の企画・編集・投稿</h3>
+          <div class="keyword">目指せ1000万回再生！学生主体の動画制作</div>
+        </button>
+        <div class="work-body">
+          <p>高校生に向け、現役大学生へのインタビューを通じたショート動画の企画・制作を行っています。</p>
+          <p>「高校時代に何を頑張り、どんな経験をしたのか」という一人ひとりのストーリーを引き出し、「自分も頑張ってみよう」と思える動画を届けることが私たちの目的です。企画から取材、編集、分析までを学生主体で担い、年間100本・累計1,000万再生を目指して挑戦しています。充実した研修制度を整えているため、未経験の方でも大歓迎です。制作ではPremiere Pro等の本格的なソフトを使用し、実践的な動画編集スキルを身につけることができます。視聴者目線に立つことでマーケティング能力が養われるだけでなく、細部までこだわる中で集中力や完遂力も高められます。</p>
+        </div>
+      </div>
+
+      <div id="work-3" class="work-card">
+        <button class="work-head">
+          <span class="work-num">03</span>
+          <h3>マンガ制作（新作・改訂）</h3>
+          <div class="keyword">全国の高校生へ、ゼロから創るマンガを。</div>
+        </button>
+        <div class="work-body">
+          <p>全国の高校生に届けるマンガの企画・プロデュースを行っています。</p>
+          <p>学年ニーズに応じたコンセプトやキャラクター設定、ストーリー展開を自分たちで企画・立案し、実際の作画やデザインは外部の制作会社へ依頼して1冊のマンガを作り上げています。自分たちのアイデアを形にできる点が大きな魅力です。また、制作会社とのやり取りを通したビジネスマナーの習得に加え、企画の過程で読者の心を動かす構成力や分析力も養うことができます。</p>
+          <figure class="work-sample"><img src="https://picsum.photos/seed/manga-sample/640/420" alt="実際に制作したマンガの1ページ（実際の作品画像に差し替え予定）"><figcaption>実際に制作したマンガ</figcaption></figure>
+        </div>
+      </div>
+
+      <div id="work-4" class="work-card">
+        <button class="work-head">
+          <span class="work-num">04</span>
+          <h3>ハガキのデザイン制作</h3>
+          <div class="keyword">言葉とデザインで惹きつけるハガキ制作</div>
+        </button>
+        <div class="work-body">
+          <p>各家庭へ届く東進の特別招待講習のハガキを制作します。</p>
+          <p>対象時期や学年に合わせたターゲット層の分析・設定から、キャッチコピーの考案、デザイン作成、掲載する講座や合格体験記の選定まで一貫して担当し、1枚のハガキを企画から完成まで作り上げていきます。</p>
+          <p>高校生の心に響くキャッチコピーを考える力が身につくほか、実際のハガキ制作を通してデザイン力や構成力も養うことができます。</p>
+          <figure class="work-sample"><img src="https://picsum.photos/seed/hagaki-sample/640/420" alt="実際に制作した長3ハガキ（実際の作品画像に差し替え予定）"><figcaption>実際に制作した長3ハガキ</figcaption></figure>
+        </div>
+      </div>
+
+      <div id="work-5" class="work-card">
+        <a class="work-thumb" href="https://www.toshin.com/question_stop/" target="_blank" rel="noopener">
+          <img src="https://picsum.photos/seed/soudan-thumb/640/360" alt="悩み相談サイトのトップ画面（実際のスクリーンショットに差し替え予定）">
+          <span class="work-thumb-badge">サイトを見る ↗</span>
+        </a>
+        <button class="work-head">
+          <span class="work-num">05</span>
+          <h3>悩み相談サイトの運営</h3>
+          <div class="keyword">10代の心を軽くする悩み相談メディア</div>
+        </button>
+        <div class="work-body">
+          <p>全国の中高生から届いたお悩みの解決を目指します。</p>
+          <p>寄せられた質問の中から回答するテーマを選び、専門家や著名人へのアポ取りから取材、記事の執筆・公開まで一貫して担当します。悩んでいる誰かの力になれることが大きなやりがいです。専門家や著名人とのやり取りを通して礼節やビジネスマナーが身につくほか、取材を通じて自分にはなかった新たな知識や視点を得ることができます。ぜひサムネイルのボタンからサイトをチェックしてみてください！</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="people">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">VOICE</div>
+      <h2>先輩の声</h2>
+      <p>実際に働く先輩に、リアルな話を聞きました</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="people-scroll reveal">
+      <div class="people-card">
+        <img src="images/voice/nishio_thumb.webp" alt="Nさん">
+        <div class="body">
+          <span class="team-tag">動画（編集）</span>
+          <div class="name">Nさん</div>
+          <div class="dept">慶應義塾大学 薬学部2年</div>
+          <div class="quote">動画編集への興味がきっかけでした。慶應生だけなので馴染みやすく安心です</div>
+          <button class="voice-open" type="button">インタビューを読む</button>
+        </div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>自宅に届いた募集ハガキをきっかけに参加した見学会で、元々関心のあった動画編集の仕事にとても惹かれました。また、働くメンバーが全員慶應生なので「ここなら周りとすぐに馴染めそう」という安心感があったことも大きな決め手です。大学の講義やサークルと無理なく両立しながら成長できる環境だと感じて選びました。</p><h4>今行っている業務はどのようなものですか？詳しく教えてください。</h4><p>東進TVの大学紹介動画の編集を行っています！どうすれば高校生に興味を持ってもらえるか、最後まで楽しく見てもらえるかなどを考えながら、動画全体の構成から、テロップやインサートの入れ方といった細部まで、こだわりながら編集を進めています。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E8%87%AA%E5%88%86%E3%81%AEPC%E3%81%A7%E5%8B%95%E7%94%BB%E6%A1%88%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="自分のPCで動画案を作成している様子（写真準備中）"><figcaption>自分のPCで動画案を作成している様子</figcaption></figure><h4>業務を行う上でやりがいを感じるのはどのような時ですか？</h4><p>編集を進めていくにつれて、徐々に完成形へと近づいていく様を見るとやりがいを感じます。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86%E4%B8%AD%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="動画編集中の様子（写真準備中）"><figcaption>動画編集中の様子</figcaption></figure><h4>学生生活との両立はどのようにしていますか？</h4><p>試験前は短時間、長期休みは長時間というように、自分の予定に合わせてシフトを調節しています！シフトの融通が効くのもこのオフィスのいい所だと感じているので、勉強、サークル、バイトのどれも頑張りたい人には特におすすめです！</p></div>
+      </div>
+      <div class="people-card">
+        <img src="images/voice/hosomi_thumb.webp" alt="Hさん">
+        <div class="body">
+          <span class="team-tag">マンガ（新作）</span>
+          <div class="name">Hさん</div>
+          <div class="dept">慶應義塾大学 文学部2年</div>
+          <div class="quote">大学帰りに通いやすい立地と、アットホームな雰囲気が魅力です</div>
+          <button class="voice-open" type="button">インタビューを読む</button>
+        </div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>「大学生活で何かに挑戦したい」と思い参加した見学会で、先輩方が仕事内容を丁寧に教えるだけでなく、履修相談にも親身に乗ってくださいました。その温かな雰囲気に惹かれ、ここで働くと決めました。大学からのアクセスの良さや、授業に合わせて無理なく働けるフレックス制である点も大きな魅力です。</p><h4>今行っている業務はどのようなものですか？</h4><p>全国の高校生の自宅に届く東進のマンガを制作しています。マンガの原案作成から業者の方とのやり取りまで1からすべて行います！読者の心を動かす分析力や構成力はもちろん、メールやミーティングを通じて社会人に必要なビジネスマナーも身に付きます。自分のアイデアを形にし、それが高校生へ届くことに大きなやりがいを感じています。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E3%83%9E%E3%83%B3%E3%82%AC%E5%88%B6%E4%BD%9C%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="マンガ制作の様子（写真準備中）"><figcaption>マンガ制作の様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどんな感じですか？</h4><p>穏やかでアットホームな雰囲気です！分からないことがあれば、社員さんや先輩、同期にすぐ質問できます。社員さんも親身にサポートしてくださるため、安心して業務に取り組めます。</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>歓迎会やBBQ、ご飯会など年に数回開催されていて、プライベートでも楽しく交流しています。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3EBBQ%E3%83%BB%E6%87%87%E8%A6%AA%E4%BC%9A%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="BBQ・懇親会の様子（写真準備中）"><figcaption>BBQ・懇親会の様子</figcaption></figure></div>
+      </div>
+      <div class="people-card">
+        <img src="images/voice/tamaki_thumb.webp" alt="Tさん">
+        <div class="body">
+          <span class="team-tag">ショート動画</span>
+          <div class="name">Tさん</div>
+          <div class="dept">慶應義塾大学 法学部2年</div>
+          <div class="quote">メリハリ抜群の雰囲気が魅力。仕事もプライベートも楽しめるオフィスです</div>
+          <button class="voice-open" type="button">インタビューを読む</button>
+        </div>
+        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進公式のYouTubeに投稿するショート動画の編集に携わっています。ただ指示通りに動画を編集するだけでなく、チームでどうすればより沢山の人に届くショート動画を作れるか分析するのも仕事です！自分たちで1から考えるのですごくやりがいがあります！</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>職場の雰囲気に良い意味でギャップがありました！ 入る前はインターンと聞いて固いイメージを持っていましたが、実際に働いてみるとみんな仲が良く、メリハリのついた楽しい職場だなと感じました！</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E3%81%A8%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="メンバーと話している様子（写真準備中）"><figcaption>メンバーと話している様子</figcaption></figure><h4>業務外での先輩、同期との関わりはありますか？</h4><p>たくさんあります！最近はBBQやボウリング、カラオケなどに行きました！</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3EBBQ%E3%83%BB%E6%87%87%E8%A6%AA%E4%BC%9A%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="BBQ・懇親会の様子（写真準備中）"><figcaption>BBQ・懇親会の様子</figcaption></figure></div>
+      </div>
+      <div class="people-card">
+        <img src="images/voice/abukawa_thumb.webp" alt="Aさん">
+        <div class="body">
+          <span class="team-tag">動画（カメラ）</span>
+          <div class="name">Aさん</div>
+          <div class="dept">慶應義塾大学 理工学部3年</div>
+          <div class="quote">本物の取材現場で撮影＆企画。学生主体でアイデアがどんどん形になります</div>
+          <button class="voice-open" type="button">インタビューを読む</button>
+        </div>
+        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進TVで公開する大学紹介動画の制作をチームで担当しています。企画構成案の作成、大学の先生方との日程調整や事前連絡、そして撮影まで、公開に至る流れを一通り任されています。撮影当日は、カメラマンとして先生や学生へのインタビューを撮影したり、補足映像など編集で必要になる画を撮影したりしています。最近は撮影者の育成やチーム運営の仕組みづくりにも取り組んでいます。</p><h4>カメラの業務を行う上で、最もやりがいや仕事の面白さを感じられるのはどのような瞬間ですか？</h4><p>狙っていた画がぴたりと撮れた瞬間です。研究中の先生の手元や研究室の空気感など、撮り直しがきかない一瞬を構図や光を工夫して一発で決められた時の達成感は格別です。自分の撮った画が編集で採用されるのも嬉しく、趣味のカメラが仕事として誰かの役に立っている面白さを実感します。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E6%92%AE%E5%BD%B1%E3%83%BB%E3%82%AB%E3%83%A1%E3%83%A9%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="撮影・カメラの様子（写真準備中）"><figcaption>撮影・カメラの様子</figcaption></figure><h4>オフィスで経験した大きな実績・誇れることは何ですか？</h4><p>複数大学の動画制作を企画から素材選定まで一貫して形にしてきたことです。またNotionを活用して進行状況を見える化する仕組みの導入や当番制の体制づくりを行い、自分がいなくても回るチーム体制にすることに力を入れています。独立して撮影できるメンバーを増やす育成にも注力しています。</p><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>大学の先生や広報担当の方と直接やり取りし、本物の取材現場に立てることです。作品が東進TVで公開されるため責任感と達成感があります。撮影だけでなく企画、台本作成、編集、チーム運営まで全体に関われ、学生主体で意見が通りやすく、自ら考えて動いた分だけ成長できる環境です。</p></div>
+      </div>
+      <div class="people-card">
+        <img src="images/voice/takahashi_thumb.webp" alt="Tさん">
+        <div class="body">
+          <span class="team-tag">ショート動画</span>
+          <div class="name">Tさん</div>
+          <div class="dept">慶應義塾大学 理工学部1年</div>
+          <div class="quote">バイト未経験の1年生でも安心。優しい先輩たちが温かく迎えてくれます</div>
+          <button class="voice-open" type="button">インタビューを読む</button>
+        </div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>大学に入学して、バイトを探しているときにインスタの投稿を見て、動画制作の経験をしてみたいと思い応募しました。慶應生限定という点でも仲良くなりやすそうだという安心感がありました。</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>思っていた以上に仕事内容が本格的だったことにギャップを感じました。 動画編集以外にも企画考案や取材打ち合わせなど、コミュニケーション能力が必要な業務も多くあります。大変さはありますが、社会で絶対に必要な能力を実践で経験できて良かったと思っています。</p><figure class="vd-photo"><img src="images/voice/takahashi_work.webp" alt="パソコンで作業している様子" style="object-position:center 35%"><figcaption>パソコンで作業している様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどのような感じですか？</h4><p>皆さん優しく、バイト経験がなくても楽しく仕事ができます。自分の予定に合わせて、比較的柔軟にシフトが組めるので助かっています。同じ学部の先輩に仕事以外のことでも相談したり、退勤後に一緒にご飯を食べに行ったりしてとても充実しています！</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E6%87%87%E8%A6%AA%E4%BC%9A%EF%BC%88%E9%A3%9F%E4%BA%8B%E4%BC%9A%EF%BC%89%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="懇親会（食事会）の様子（写真準備中）"><figcaption>懇親会（食事会）の様子</figcaption></figure></div>
+      </div>
+      <div class="people-card">
+        <img src="images/voice/takara_thumb.webp" alt="Tさん">
+        <div class="body">
+          <span class="team-tag">悩み相談</span>
+          <div class="name">Tさん</div>
+          <div class="dept">慶應義塾大学 商学部4年</div>
+          <div class="quote">チームを巻き込む経験が就活で圧倒的な強みになりました</div>
+          <button class="voice-open" type="button">インタビューを読む</button>
+        </div>
+        <div class="voice-full" hidden><h4>ここでの仕事や経験が、就活や自己PRにどう役立ちましたか？</h4><p>2年生の早い段階からリーダーを任される機会が多く、チームでプロジェクトを動かした経験や困難を乗り越えたエピソードは就活の大きな強みになりました。また、半年に一度ある先輩や社員の方との面談は、自身の長所や次の目標を確認し、客観的に自分を振り返る自己分析の場として非常に役立ちました。</p><h4>学生同士でプロジェクトを動かす中で、一番「成長できた」と感じた瞬間や壁は何ですか？</h4><p>周囲を巻き込んでプロジェクトを動かした瞬間です。最初は一人でやり遂げることが良いと思っていたのですが、先輩からアドバイスを頂いて、先輩や後輩に自発的に協力を求めるようになってから、チームでスムーズに仕事を進められるようになり、自身の成長を実感しました。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%81%A7%E3%81%AE%E4%BC%9A%E8%AD%B0%E4%B8%AD%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="オフィスでの会議中の様子（写真準備中）"><figcaption>オフィスでの会議中の様子</figcaption></figure><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>社会で必要となる実践的なスキルを磨きながら、自分自身も成長して働ける点です。外部の方とのやり取りを通じたビジネスマナーはもちろん、自ら企画を考えリーダーとして推進するなど、通常のアルバイトでは得難い経験をしながらお給料をいただける環境は、このオフィスならではの魅力だと思います。</p><h4>4年間を振り返って、未来の慶應生へ向けた熱いメッセージをお願いします！</h4><p>右も左も分からないまま見学会に参加し飛び込みましたが、振り返ると「あの時決断して本当に良かった」と心から思っています。大学生活や就活の相談もできる温かいコミュニティであり、自分を大きく成長させてくれる機会に溢れています。ぜひオフィスに入って、最高に充実した4年間を過ごしてください！</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog id="voiceDialog" class="voice-dialog">
+  <button type="button" class="voice-close" aria-label="閉じる">×</button>
+  <div class="voice-dialog-head"><span class="team-tag" id="vdTeam"></span><div class="name" id="vdName"></div><div class="dept" id="vdDept"></div><div class="vd-head" id="vdHead"></div></div>
+  <figure class="vd-photo vd-top"><img id="vdTop" alt=""></figure>
+  <div id="vdBody"></div>
+</dialog>
+
+<section id="conditions" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">RECRUIT</div>
+      <h2>雇用条件・募集要項</h2>
+    </div>
+    <table class="reveal" style="width:100%; border-collapse:collapse; background:#fff; border-radius:var(--radius-m); overflow:hidden; border:1px solid var(--line);">
+      <tr><th style="width:160px; text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">給与</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">時給1,300円〜2,200円（活躍に応じて昇給）</td></tr>
+      <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">交通費</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">全額支給</td></tr>
+      <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">応募資格</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">慶應義塾大学 在学生／未経験者歓迎</td></tr>
+      <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">勤務時間・シフト</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">1か月36時間（1日3時間）／大学の時間割に合わせてシフトを調整できます</td></tr>
+      <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px;">勤務地・アクセス</th><td style="padding:16px 20px; font-size:.9rem;">東京都港区三田／田町駅・三田駅から徒歩圏内</td></tr>
+    </table>
+    <div class="access-map reveal">
+      <div class="access-address">
+        〒108-0014 東京都港区芝４丁目３−７ エムジー田町ビル ２階
+      </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.1556902611032!2d139.7502404!3d35.648535599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bb6673651ff%3A0x3ae23260f42bad66!2z44CSMTA4LTAwMTQg5p2x5Lqs6YO95riv5Yy66Iqd77yU5LiB55uu77yT4oiS77yXIOOCqOODoOOCuOODvOeUsOeUuuODk-ODqw!5e0!3m2!1sja!2sjp!4v1788259702586!5m2!1sja!2sjp"
+        width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="慶應三田オフィス地図">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ▼【改善④】選考フロー（早稲田オフィスと共通の内容）をFAQの上に追加 ▼ -->
+<section id="flow">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">FLOW</div>
+      <h2>エントリーの流れ</h2>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-step">
+        <h3>面接日時設定</h3>
+        <p>エントリーフォームにて希望面接日時をお選びいただきます。お申し込み後、担当者から面接日時に関するメールを差し上げます。</p>
+      </div>
+      <div class="flow-step">
+        <h3>面接</h3>
+        <p>慶應三田オフィスにて面接を行います。所要時間は1〜2時間程度です。</p>
+      </div>
+      <div class="flow-step">
+        <h3>事前研修</h3>
+        <p>指定の期間内にオンラインで事前研修・テストを受けていただきます。詳細については面接合格後に個別にメールを差し上げます。</p>
+      </div>
+      <div class="flow-step">
+        <h3>初勤務</h3>
+        <p>ナガセ広報研究所慶應三田オフィスでの勤務スタートです！充実の研修制度が整っているので未経験でも安心です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Q&amp;A</div>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq-category">勤務条件・スケジュールに関する質問</div>
+
+    <!-- ▼【改善③】学部ごとの1週間のスケジュールに関するFAQ ▼ -->
+    <div class="faq-item faq-large">
+      <button class="faq-q">Q. 1年生の1週間のスケジュールを教えてください</button>
+      <div class="faq-a">
+        <p style="padding-top:12px;">学部によって授業の入り方が異なるため、各学部の1年生の時間割に合わせた例をご紹介します（あくまで一例です）。</p>
+        <div class="week-scroll" id="weekScrollContainer"></div>
+        <div class="week-legend">
+          <span><i style="background:#DCF6E3;"></i>授業</span>
+          <span><i style="background:#FBDCE8;"></i>勤務</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Q. 勤務時間の目安はありますか？</button>
+      <div class="faq-a">A. 1か月36時間（1日3時間）が目安です。時間割に合わせて個々にシフトを組めるため、学業との両立もしやすくなっています。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. シフトはどのくらいの頻度で提出しますか？</button>
+      <div class="faq-a">A. 目安として１か月ごとにシフトを提出していただきます。曜日固定の縛りはありません。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 土日の勤務は可能ですか？</button>
+      <div class="faq-a">A. 土曜日は終日勤務可能です。</div>
+    </div>
+
+    <div class="faq-category">学業・スキル・将来のための質問</div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 動画編集もデザインも未経験ですが大丈夫ですか？</button>
+      <div class="faq-a">A. 9割近くのメンバーが未経験からスタートしています！研修制度が整っているので安心してください。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 理系学部でも研究やサークルと両立できますか？</button>
+      <div class="faq-a">A. 理系の先輩も多数活躍しています。平日に加えて土曜日も勤務可能のため、研究室のスケジュールに合わせて調整可能です。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. どんなスキルが身につきますか？</button>
+      <div class="faq-a">A. 動画編集・記事執筆・取材力に加え、チームで成果を出す中でリーダーシップやプレゼンテーション能力も養えます。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 卒業生の就職先はどのような業界が多いですか？</button>
+      <div class="faq-a">A. IT・広告・メディア業界を中心に、幅広い分野で活躍しています（具体的な就職先例は取材のうえ追記予定）。</div>
+    </div>
+
+    <div class="faq-category">報酬・福利厚生に関する質問</div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 時給はどのように変化しますか？</button>
+      <div class="faq-a">A. 活躍やスキルの習得度に応じて、1,300円〜2,200円の範囲で昇給していきます。昇給の機会が年２回あります。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 交通費は支給されますか？</button>
+      <div class="faq-a">A. 規定に基づき交通費を支給しています。</div>
+    </div>
+
+    <div class="faq-category">職場環境・雰囲気・マナーに関する質問</div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 学生同士の仲は良いですか？</button>
+      <div class="faq-a">A. はい。業務はもちろん、懇親会やイベントも多く、学年・学部を問わず仲良く活動しています。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 髪色や服装に規定はありますか？</button>
+      <div class="faq-a">A. 髪色や服装には規定がありません。自由なスタイルで勤務できる点も魅力です。</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Q. 男女比はどれくらいですか？</button>
+      <div class="faq-a">A. 大きな偏りなく、男女どちらも活躍しています。</div>
+    </div>
+  </div>
+</section>
+
+<div class="common-banner-placeholder">
+  ここには東進サイト共通のフッターが入ります。<br>
+</div>
+<footer class="mock-footer">Copyright (C) Nagase Brothers Inc.</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); });
+});
+document.querySelectorAll('.work-head').forEach(function(btn){
+  btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); });
+});
+
+/* ▼ スクロール演出：画面内に入ったら .is-visible を付与 ▼ */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ▼ 学部別・週間スケジュール表の生成（③のFAQ用、ダミーデータ） ▼ */
+(function(){
+  var days = ['月','火','水','木','金','土','日'];
+  var periods = ['1限','2限','3限','4限','5限','6限','7限'];
+
+  // 各セルは ''（空）/ '授業' / '勤務'（全学部1年生の時間割。商・理工・薬は仮データ）
+  var schedules = [
+    {
+      name: '文学部（1年）',
+      data: [
+        ['','','勤務','','','',''],
+        ['授業','','勤務','','勤務','',''],
+        ['','授業','','','勤務','',''],
+        ['授業','勤務','授業','','','',''],
+        ['授業','勤務','','授業','','',''],
+        ['','勤務','','勤務','','',''],
+        ['','','','','','','']
+      ]
+    },
+    {
+      name: '法学部（1年）',
+      data: [
+        ['','授業','授業','授業','','',''],
+        ['授業','授業','','授業','','',''],
+        ['','授業','授業','','勤務','',''],
+        ['授業','','授業','授業','勤務','',''],
+        ['','勤務','授業','勤務','','',''],
+        ['','勤務','','勤務','','',''],
+        ['','勤務','','','','','']
+      ]
+    },
+    {
+      name: '商学部（1年）',
+      data: [
+        ['','授業','授業','授業','授業','勤務',''],
+        ['授業','','','授業','勤務','勤務',''],
+        ['授業','授業','授業','','勤務','勤務',''],
+        ['授業','授業','授業','授業','授業','勤務',''],
+        ['授業','勤務','授業','勤務','授業','',''],
+        ['','勤務','','勤務','','',''],
+        ['','勤務','','勤務','','','']
+      ]
+    },
+    {
+      name: '理工学部（1年）',
+      data: [
+        ['','','勤務','','授業','勤務',''],
+        ['授業','授業','勤務','授業','','勤務',''],
+        ['','授業','授業','','授業','勤務',''],
+        ['授業','勤務','授業','授業','','勤務',''],
+        ['授業','勤務','授業','勤務','','',''],
+        ['','勤務','','勤務','','',''],
+        ['','勤務','','勤務','','','']
+      ]
+    },
+    {
+      name: '薬学部（1年）',
+      data: [
+        ['授業','授業','授業','授業','授業','',''],
+        ['授業','授業','授業','授業','授業','',''],
+        ['授業','授業','授業','授業','授業','',''],
+        ['授業','授業','授業','授業','授業','勤務',''],
+        ['','','','','','勤務',''],
+        ['','勤務','','','','',''],
+        ['','','','','','','']
+      ]
+    }
+  ];
+
+  function cellClass(val){
+    if (val === '授業') return 'cell-lecture';
+    if (val === '勤務') return 'cell-work';
+    return '';
+  }
+
+  var container = document.getElementById('weekScrollContainer');
+  if (!container) return;
+
+  schedules.forEach(function(sch){
+    var card = document.createElement('div');
+    card.className = 'week-card';
+
+    var h4 = document.createElement('h4');
+    h4.textContent = sch.name;
+    card.appendChild(h4);
+
+    var table = document.createElement('table');
+    table.className = 'week-table';
+
+    var thead = document.createElement('tr');
+    var thBlank = document.createElement('th');
+    thBlank.textContent = '';
+    thead.appendChild(thBlank);
+    days.forEach(function(d){
+      var th = document.createElement('th');
+      th.textContent = d;
+      thead.appendChild(th);
+    });
+    table.appendChild(thead);
+
+    periods.forEach(function(p, rowIndex){
+      var tr = document.createElement('tr');
+      var thP = document.createElement('th');
+      thP.textContent = p;
+      tr.appendChild(thP);
+      days.forEach(function(d, colIndex){
+        var td = document.createElement('td');
+        var val = sch.data[rowIndex][colIndex];
+        if (val) {
+          td.textContent = val;
+          td.className = cellClass(val);
+        }
+        tr.appendChild(td);
+      });
+      table.appendChild(tr);
+    });
+
+    card.appendChild(table);
+    container.appendChild(card);
+  });
+})();
+
+/* ▼ 先輩の声ダイアログ・固定ナビ ▼ */
+(function(){
+  var dlg=document.getElementById('voiceDialog');
+  document.querySelectorAll('.voice-open').forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.closest('.people-card');
+      document.getElementById('vdTeam').textContent=c.querySelector('.team-tag').textContent;
+      document.getElementById('vdName').textContent=c.querySelector('.name').textContent;
+      document.getElementById('vdDept').textContent=c.querySelector('.dept').textContent;
+      document.getElementById('vdHead').textContent=c.querySelector('.quote').textContent;
+      var ti=document.getElementById('vdTop'); ti.src=c.querySelector('img').src; ti.alt=c.querySelector('.name').textContent+'の写真';
+      document.getElementById('vdBody').innerHTML=c.querySelector('.voice-full').innerHTML;
+      dlg.showModal();
+    });
+  });
+  dlg.querySelector('.voice-close').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+  var nav=document.getElementById('quickNav'), hero=document.querySelector('.hero8');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ nav.classList.toggle('show', !en[0].isIntersecting && en[0].boundingClientRect.top<0); },{threshold:0}).observe(hero);
+  }
+})();
+</script>
+
+<script>
+/* ▼ v10：ヒーロー（4種類・10秒ごと・矢印／ドット操作）とトップへ戻るボタン ▼ */
+(function(){
+  var track=document.getElementById('hTrack'); if(!track) return;
+  var slides=[].slice.call(track.children), n=slides.length, i=0, timer=null;
+  var dots=[].slice.call(document.querySelectorAll('#hDots button'));
+  var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k){
+    i=(k+n)%n;
+    track.style.transform='translateX('+(-i*100)+'%)';
+    dots.forEach(function(d,j){ d.classList.toggle('on',j===i); d.setAttribute('aria-current',j===i?'true':'false'); });
+    slides.forEach(function(s,j){ s.setAttribute('aria-hidden',j===i?'false':'true'); });
+  }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  function start(){ stop(); if(reduce) return; timer=setInterval(function(){ if(!document.hidden) show(i+1); },10000); }
+  document.getElementById('hPrev').addEventListener('click',function(){ show(i-1); start(); });
+  document.getElementById('hNext').addEventListener('click',function(){ show(i+1); start(); });
+  dots.forEach(function(d,j){ d.addEventListener('click',function(){ show(j); start(); }); });
+  show(0); start();
+})();
+(function(){
+  var t=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){ t.classList.toggle('show',window.scrollY>500); },{passive:true});
+})();
+</script>
+</body>
+</html>
