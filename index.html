@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ナガセ広報研究所 慶應三田オフィス 長期インターン募集（v11）</title>
+<title>ナガセ広報研究所 慶應三田オフィス 長期インターン募集（v15）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -776,6 +776,28 @@ body{ color:var(--navy); }
 .tv-name{ font-family:'Zen Maru Gothic',sans-serif; letter-spacing:.04em; font-size:.95em; }
 .tv-go svg{ width:13px; height:13px; display:block; transition:transform .15s ease; }
 .tv-link:hover .tv-go svg{ transform:translate(2px,-2px); }
+
+/* v13：仕事中の写真は縦長でも顔が切れにくいよう中央寄せ */
+.vd-photo img{ object-position:center 40%; }
+
+/* メインビジュアル：上に「未経験から／学びながら、」、下に「はたらく。／説明」。中央は人物のために空ける */
+.hslide-main::after{ background:
+  linear-gradient(180deg, rgba(12,34,66,.62) 0%, rgba(12,34,66,.30) 24%, rgba(12,34,66,0) 42%),
+  linear-gradient(0deg, rgba(12,34,66,.72) 0%, rgba(12,34,66,.40) 24%, rgba(12,34,66,0) 46%); }
+.hslide-main .hcopy.hcopy-split{ top:0; bottom:0; padding:92px 20px 26px; display:flex; flex-direction:column; align-items:flex-start; }
+.hcopy-split h1{ display:contents; margin:0; }
+.hcopy-split h1::after{ display:none !important; }
+.hcopy-split .bubble8{ margin-top:6px; }
+.hcopy-split .h1a,.hcopy-split .h1b{ display:block; width:fit-content; font-family:'Zen Maru Gothic',sans-serif; font-weight:900; color:#fff;
+  font-size:clamp(2.6rem,12.4vw,4.4rem); line-height:1.15; text-shadow:0 3px 16px rgba(8,24,50,.5); transform:rotate(-3deg); transform-origin:left bottom; }
+.hcopy-split .h1a{ margin-top:14px; }
+.hcopy-split .h1b{ margin-top:auto; }
+.hcopy-split .h1b::after{ content:""; display:block; width:80%; height:7px; border-radius:7px; background:var(--yellow); margin-top:6px; transform:rotate(-1deg); }
+.hslide-main .hcopy-split .lead{ color:#fff; margin:18px 0 0; text-shadow:0 2px 10px rgba(8,24,50,.55); }
+@media (min-width:900px){
+  .hslide-main .hcopy.hcopy-split{ left:0; right:0; width:auto; transform:none; padding:96px max(76px, calc((100% - 1180px)/2 + 76px)) 36px; }
+  .hcopy-split .h1a,.hcopy-split .h1b{ font-size:5.4rem; }
+}
 </style>
 </head>
 <body id="top">
@@ -805,11 +827,11 @@ body{ color:var(--navy); }
         <!-- 1 メインビジュアル：開いた瞬間に大きく表示。キャッチコピーは写真の下側に軽く重ねる -->
         <section class="hslide hslide-main" aria-label="1／3 メインビジュアル">
           <div class="hphoto"><img src="https://picsum.photos/seed/mita-hero8/1200/1400" alt="PCを見ながら笑顔で話す慶應生のインターン生（メインビジュアル・写真差し替え予定）"></div>
-          <div class="hcopy">
+          <div class="hcopy hcopy-split">
             <div class="bubble8">未経験から
-              <svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30 L16 14 M18 34 L32 22 M24 8 L28 2" stroke="#1D3C72" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+              <svg class="spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30 L16 14 M18 34 L32 22 M24 8 L28 2" stroke="#fff" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
             </div>
-            <h1>学びながら、<br>はたらく。</h1>
+            <h1><span class="h1a">学びながら、</span><span class="h1b">はたらく。</span></h1>
             <p class="lead">動画・マンガ・SNS…「伝える力」を、<br>現場で本気で身につける長期インターン</p>
           </div>
         </section>
@@ -1036,7 +1058,7 @@ body{ color:var(--navy); }
   <div class="wrap">
     <div class="people-scroll reveal">
       <div class="people-card">
-        <img src="https://picsum.photos/seed/senpai-nishio/300/300" alt="西尾さんの顔写真（写真差し替え予定）">
+        <img src="images/voice/nishio_thumb.webp" alt="Nさん">
         <div class="body">
           <span class="team-tag">動画（編集）</span>
           <div class="name">Nさん</div>
@@ -1044,10 +1066,10 @@ body{ color:var(--navy); }
           <div class="quote">動画編集への興味がきっかけでした。慶應生だけなので馴染みやすく安心です</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>自宅に届いた募集ハガキをきっかけに参加した見学会で、元々関心のあった動画編集の仕事にとても惹かれました。また、働くメンバーが全員慶應生なので「ここなら周りとすぐに馴染めそう」という安心感があったことも大きな決め手です。大学の講義やサークルと無理なく両立しながら成長できる環境だと感じて選びました。</p><h4>今行っている業務はどのようなものですか？詳しく教えてください。</h4><p>東進TVの大学紹介動画の編集を行っています！どうすれば高校生に興味を持ってもらえるか、最後まで楽しく見てもらえるかなどを考えながら、動画全体の構成から、テロップやインサートの入れ方といった細部まで、こだわりながら編集を進めています。</p><figure class="vd-photo"><img src="https://picsum.photos/seed/plan-nishio/640/420" alt="自分のPCで動画案を作成している様子（写真差し替え予定）"><figcaption>自分のPCで動画案を作成している様子</figcaption></figure><h4>業務を行う上でやりがいを感じるのはどのような時ですか？</h4><p>編集を進めていくにつれて、徐々に完成形へと近づいていく様を見るとやりがいを感じます。</p><figure class="vd-photo"><img src="https://picsum.photos/seed/edit-nishio/640/420" alt="動画編集中の様子（写真差し替え予定）"><figcaption>動画編集中の様子</figcaption></figure><h4>学生生活との両立はどのようにしていますか？</h4><p>試験前は短時間、長期休みは長時間というように、自分の予定に合わせてシフトを調節しています！シフトの融通が効くのもこのオフィスのいい所だと感じているので、勉強、サークル、バイトのどれも頑張りたい人には特におすすめです！</p></div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>自宅に届いた募集ハガキをきっかけに参加した見学会で、元々関心のあった動画編集の仕事にとても惹かれました。また、働くメンバーが全員慶應生なので「ここなら周りとすぐに馴染めそう」という安心感があったことも大きな決め手です。大学の講義やサークルと無理なく両立しながら成長できる環境だと感じて選びました。</p><h4>今行っている業務はどのようなものですか？詳しく教えてください。</h4><p>東進TVの大学紹介動画の編集を行っています！どうすれば高校生に興味を持ってもらえるか、最後まで楽しく見てもらえるかなどを考えながら、動画全体の構成から、テロップやインサートの入れ方といった細部まで、こだわりながら編集を進めています。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E8%87%AA%E5%88%86%E3%81%AEPC%E3%81%A7%E5%8B%95%E7%94%BB%E6%A1%88%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="自分のPCで動画案を作成している様子（写真準備中）"><figcaption>自分のPCで動画案を作成している様子</figcaption></figure><h4>業務を行う上でやりがいを感じるのはどのような時ですか？</h4><p>編集を進めていくにつれて、徐々に完成形へと近づいていく様を見るとやりがいを感じます。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86%E4%B8%AD%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="動画編集中の様子（写真準備中）"><figcaption>動画編集中の様子</figcaption></figure><h4>学生生活との両立はどのようにしていますか？</h4><p>試験前は短時間、長期休みは長時間というように、自分の予定に合わせてシフトを調節しています！シフトの融通が効くのもこのオフィスのいい所だと感じているので、勉強、サークル、バイトのどれも頑張りたい人には特におすすめです！</p></div>
       </div>
       <div class="people-card">
-        <img src="https://picsum.photos/seed/senpai-hosomi/300/300" alt="細見さんの顔写真（写真差し替え予定）">
+        <img src="images/voice/hosomi_thumb.webp" alt="Hさん">
         <div class="body">
           <span class="team-tag">マンガ（新作）</span>
           <div class="name">Hさん</div>
@@ -1055,10 +1077,10 @@ body{ color:var(--navy); }
           <div class="quote">大学帰りに通いやすい立地と、アットホームな雰囲気が魅力です</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>「大学生活で何かに挑戦したい」と思い参加した見学会で、先輩方が仕事内容を丁寧に教えるだけでなく、履修相談にも親身に乗ってくださいました。その温かな雰囲気に惹かれ、ここで働くと決めました。大学からのアクセスの良さや、授業に合わせて無理なく働けるフレックス制である点も大きな魅力です。</p><h4>今行っている業務はどのようなものですか？</h4><p>全国の高校生の自宅に届く東進のマンガを制作しています。マンガの原案作成から業者の方とのやり取りまで1からすべて行います！読者の心を動かす分析力や構成力はもちろん、メールやミーティングを通じて社会人に必要なビジネスマナーも身に付きます。自分のアイデアを形にし、それが高校生へ届くことに大きなやりがいを感じています。</p><figure class="vd-photo"><img src="https://picsum.photos/seed/manga-work/640/420" alt="マンガ制作の様子（写真差し替え予定）"><figcaption>マンガ制作の様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどんな感じですか？</h4><p>穏やかでアットホームな雰囲気です！分からないことがあれば、社員さんや先輩、同期にすぐ質問できます。社員さんも親身にサポートしてくださるため、安心して業務に取り組めます。</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>歓迎会やBBQ、ご飯会など年に数回開催されていて、プライベートでも楽しく交流しています。</p><figure class="vd-photo"><img src="https://picsum.photos/seed/bbq-hosomi/640/420" alt="BBQ・懇親会の様子（写真差し替え予定）"><figcaption>BBQ・懇親会の様子</figcaption></figure></div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>「大学生活で何かに挑戦したい」と思い参加した見学会で、先輩方が仕事内容を丁寧に教えるだけでなく、履修相談にも親身に乗ってくださいました。その温かな雰囲気に惹かれ、ここで働くと決めました。大学からのアクセスの良さや、授業に合わせて無理なく働けるフレックス制である点も大きな魅力です。</p><h4>今行っている業務はどのようなものですか？</h4><p>全国の高校生の自宅に届く東進のマンガを制作しています。マンガの原案作成から業者の方とのやり取りまで1からすべて行います！読者の心を動かす分析力や構成力はもちろん、メールやミーティングを通じて社会人に必要なビジネスマナーも身に付きます。自分のアイデアを形にし、それが高校生へ届くことに大きなやりがいを感じています。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E3%83%9E%E3%83%B3%E3%82%AC%E5%88%B6%E4%BD%9C%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="マンガ制作の様子（写真準備中）"><figcaption>マンガ制作の様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどんな感じですか？</h4><p>穏やかでアットホームな雰囲気です！分からないことがあれば、社員さんや先輩、同期にすぐ質問できます。社員さんも親身にサポートしてくださるため、安心して業務に取り組めます。</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>歓迎会やBBQ、ご飯会など年に数回開催されていて、プライベートでも楽しく交流しています。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3EBBQ%E3%83%BB%E6%87%87%E8%A6%AA%E4%BC%9A%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="BBQ・懇親会の様子（写真準備中）"><figcaption>BBQ・懇親会の様子</figcaption></figure></div>
       </div>
       <div class="people-card">
-        <img src="https://picsum.photos/seed/senpai-tamaki/300/300" alt="玉城さんの顔写真（写真差し替え予定）">
+        <img src="images/voice/tamaki_thumb.webp" alt="Tさん">
         <div class="body">
           <span class="team-tag">ショート動画</span>
           <div class="name">Tさん</div>
@@ -1066,10 +1088,10 @@ body{ color:var(--navy); }
           <div class="quote">メリハリ抜群の雰囲気が魅力。仕事もプライベートも楽しめるオフィスです</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進公式のYouTubeに投稿するショート動画の編集に携わっています。ただ指示通りに動画を編集するだけでなく、チームでどうすればより沢山の人に届くショート動画を作れるか分析するのも仕事です！自分たちで1から考えるのですごくやりがいがあります！</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>職場の雰囲気に良い意味でギャップがありました！ 入る前はインターンと聞いて固いイメージを持っていましたが、実際に働いてみるとみんな仲が良く、メリハリのついた楽しい職場だなと感じました！</p><figure class="vd-photo"><img src="https://picsum.photos/seed/talk-tamaki/640/420" alt="メンバーと話している様子（写真差し替え予定）"><figcaption>メンバーと話している様子</figcaption></figure><h4>業務外での先輩、同期との関わりはありますか？</h4><p>たくさんあります！最近はBBQやボウリング、カラオケなどに行きました！</p><figure class="vd-photo"><img src="https://picsum.photos/seed/bbq-tamaki/640/420" alt="BBQ・懇親会の様子（写真差し替え予定）"><figcaption>BBQ・懇親会の様子</figcaption></figure></div>
+        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進公式のYouTubeに投稿するショート動画の編集に携わっています。ただ指示通りに動画を編集するだけでなく、チームでどうすればより沢山の人に届くショート動画を作れるか分析するのも仕事です！自分たちで1から考えるのですごくやりがいがあります！</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>職場の雰囲気に良い意味でギャップがありました！ 入る前はインターンと聞いて固いイメージを持っていましたが、実際に働いてみるとみんな仲が良く、メリハリのついた楽しい職場だなと感じました！</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%E3%81%A8%E8%A9%B1%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="メンバーと話している様子（写真準備中）"><figcaption>メンバーと話している様子</figcaption></figure><h4>業務外での先輩、同期との関わりはありますか？</h4><p>たくさんあります！最近はBBQやボウリング、カラオケなどに行きました！</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3EBBQ%E3%83%BB%E6%87%87%E8%A6%AA%E4%BC%9A%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="BBQ・懇親会の様子（写真準備中）"><figcaption>BBQ・懇親会の様子</figcaption></figure></div>
       </div>
       <div class="people-card">
-        <img src="https://picsum.photos/seed/senpai-abukawa/300/300" alt="虻川さんの顔写真（写真差し替え予定）">
+        <img src="images/voice/abukawa_thumb.webp" alt="Aさん">
         <div class="body">
           <span class="team-tag">動画（カメラ）</span>
           <div class="name">Aさん</div>
@@ -1077,10 +1099,10 @@ body{ color:var(--navy); }
           <div class="quote">本物の取材現場で撮影＆企画。学生主体でアイデアがどんどん形になります</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進TVで公開する大学紹介動画の制作をチームで担当しています。企画構成案の作成、大学の先生方との日程調整や事前連絡、そして撮影まで、公開に至る流れを一通り任されています。撮影当日は、カメラマンとして先生や学生へのインタビューを撮影したり、補足映像など編集で必要になる画を撮影したりしています。最近は撮影者の育成やチーム運営の仕組みづくりにも取り組んでいます。</p><h4>カメラの業務を行う上で、最もやりがいや仕事の面白さを感じられるのはどのような瞬間ですか？</h4><p>狙っていた画がぴたりと撮れた瞬間です。研究中の先生の手元や研究室の空気感など、撮り直しがきかない一瞬を構図や光を工夫して一発で決められた時の達成感は格別です。自分の撮った画が編集で採用されるのも嬉しく、趣味のカメラが仕事として誰かの役に立っている面白さを実感します。</p><figure class="vd-photo"><img src="https://picsum.photos/seed/camera-abukawa/640/420" alt="撮影・カメラの様子（写真差し替え予定）"><figcaption>撮影・カメラの様子</figcaption></figure><h4>オフィスで経験した大きな実績・誇れることは何ですか？</h4><p>複数大学の動画制作を企画から素材選定まで一貫して形にしてきたことです。またNotionを活用して進行状況を見える化する仕組みの導入や当番制の体制づくりを行い、自分がいなくても回るチーム体制にすることに力を入れています。独立して撮影できるメンバーを増やす育成にも注力しています。</p><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>大学の先生や広報担当の方と直接やり取りし、本物の取材現場に立てることです。作品が東進TVで公開されるため責任感と達成感があります。撮影だけでなく企画、台本作成、編集、チーム運営まで全体に関われ、学生主体で意見が通りやすく、自ら考えて動いた分だけ成長できる環境です。</p></div>
+        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進TVで公開する大学紹介動画の制作をチームで担当しています。企画構成案の作成、大学の先生方との日程調整や事前連絡、そして撮影まで、公開に至る流れを一通り任されています。撮影当日は、カメラマンとして先生や学生へのインタビューを撮影したり、補足映像など編集で必要になる画を撮影したりしています。最近は撮影者の育成やチーム運営の仕組みづくりにも取り組んでいます。</p><h4>カメラの業務を行う上で、最もやりがいや仕事の面白さを感じられるのはどのような瞬間ですか？</h4><p>狙っていた画がぴたりと撮れた瞬間です。研究中の先生の手元や研究室の空気感など、撮り直しがきかない一瞬を構図や光を工夫して一発で決められた時の達成感は格別です。自分の撮った画が編集で採用されるのも嬉しく、趣味のカメラが仕事として誰かの役に立っている面白さを実感します。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E6%92%AE%E5%BD%B1%E3%83%BB%E3%82%AB%E3%83%A1%E3%83%A9%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="撮影・カメラの様子（写真準備中）"><figcaption>撮影・カメラの様子</figcaption></figure><h4>オフィスで経験した大きな実績・誇れることは何ですか？</h4><p>複数大学の動画制作を企画から素材選定まで一貫して形にしてきたことです。またNotionを活用して進行状況を見える化する仕組みの導入や当番制の体制づくりを行い、自分がいなくても回るチーム体制にすることに力を入れています。独立して撮影できるメンバーを増やす育成にも注力しています。</p><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>大学の先生や広報担当の方と直接やり取りし、本物の取材現場に立てることです。作品が東進TVで公開されるため責任感と達成感があります。撮影だけでなく企画、台本作成、編集、チーム運営まで全体に関われ、学生主体で意見が通りやすく、自ら考えて動いた分だけ成長できる環境です。</p></div>
       </div>
       <div class="people-card">
-        <img src="https://picsum.photos/seed/senpai-takahashi/300/300" alt="高橋さんの顔写真（写真差し替え予定）">
+        <img src="images/voice/takahashi_thumb.webp" alt="Tさん">
         <div class="body">
           <span class="team-tag">ショート動画</span>
           <div class="name">Tさん</div>
@@ -1088,10 +1110,10 @@ body{ color:var(--navy); }
           <div class="quote">バイト未経験の1年生でも安心。優しい先輩たちが温かく迎えてくれます</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>大学に入学して、バイトを探しているときにインスタの投稿を見て、動画制作の経験をしてみたいと思い応募しました。慶應生限定という点でも仲良くなりやすそうだという安心感がありました。</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>思っていた以上に仕事内容が本格的だったことにギャップを感じました。 動画編集以外にも企画考案や取材打ち合わせなど、コミュニケーション能力が必要な業務も多くあります。大変さはありますが、社会で絶対に必要な能力を実践で経験できて良かったと思っています。</p><figure class="vd-photo"><img src="https://picsum.photos/seed/edit-takahashi/640/420" alt="動画編集中の様子（写真差し替え予定）"><figcaption>動画編集中の様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどのような感じですか？</h4><p>皆さん優しく、バイト経験がなくても楽しく仕事ができます。自分の予定に合わせて、比較的柔軟にシフトが組めるので助かっています。同じ学部の先輩に仕事以外のことでも相談したり、退勤後に一緒にご飯を食べに行ったりしてとても充実しています！</p><figure class="vd-photo"><img src="https://picsum.photos/seed/dinner-takahashi/640/420" alt="懇親会（食事会）の様子（写真差し替え予定）"><figcaption>懇親会（食事会）の様子</figcaption></figure></div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>大学に入学して、バイトを探しているときにインスタの投稿を見て、動画制作の経験をしてみたいと思い応募しました。慶應生限定という点でも仲良くなりやすそうだという安心感がありました。</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>思っていた以上に仕事内容が本格的だったことにギャップを感じました。 動画編集以外にも企画考案や取材打ち合わせなど、コミュニケーション能力が必要な業務も多くあります。大変さはありますが、社会で絶対に必要な能力を実践で経験できて良かったと思っています。</p><figure class="vd-photo"><img src="images/voice/takahashi_work.webp" alt="パソコンで作業している様子" style="object-position:center 35%"><figcaption>パソコンで作業している様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどのような感じですか？</h4><p>皆さん優しく、バイト経験がなくても楽しく仕事ができます。自分の予定に合わせて、比較的柔軟にシフトが組めるので助かっています。同じ学部の先輩に仕事以外のことでも相談したり、退勤後に一緒にご飯を食べに行ったりしてとても充実しています！</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E6%87%87%E8%A6%AA%E4%BC%9A%EF%BC%88%E9%A3%9F%E4%BA%8B%E4%BC%9A%EF%BC%89%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="懇親会（食事会）の様子（写真準備中）"><figcaption>懇親会（食事会）の様子</figcaption></figure></div>
       </div>
       <div class="people-card">
-        <img src="https://picsum.photos/seed/senpai-takara/300/300" alt="高良さんの顔写真（写真差し替え予定）">
+        <img src="images/voice/takara_thumb.webp" alt="Tさん">
         <div class="body">
           <span class="team-tag">悩み相談</span>
           <div class="name">Tさん</div>
@@ -1099,7 +1121,7 @@ body{ color:var(--navy); }
           <div class="quote">チームを巻き込む経験が就活で圧倒的な強みになりました</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>ここでの仕事や経験が、就活や自己PRにどう役立ちましたか？</h4><p>2年生の早い段階からリーダーを任される機会が多く、チームでプロジェクトを動かした経験や困難を乗り越えたエピソードは就活の大きな強みになりました。また、半年に一度ある先輩や社員の方との面談は、自身の長所や次の目標を確認し、客観的に自分を振り返る自己分析の場として非常に役立ちました。</p><h4>学生同士でプロジェクトを動かす中で、一番「成長できた」と感じた瞬間や壁は何ですか？</h4><p>周囲を巻き込んでプロジェクトを動かした瞬間です。最初は一人でやり遂げることが良いと思っていたのですが、先輩からアドバイスを頂いて、先輩や後輩に自発的に協力を求めるようになってから、チームでスムーズに仕事を進められるようになり、自身の成長を実感しました。</p><figure class="vd-photo"><img src="https://picsum.photos/seed/meeting-takara/640/420" alt="オフィスでの会議中の様子（写真差し替え予定）"><figcaption>オフィスでの会議中の様子</figcaption></figure><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>社会で必要となる実践的なスキルを磨きながら、自分自身も成長して働ける点です。外部の方とのやり取りを通じたビジネスマナーはもちろん、自ら企画を考えリーダーとして推進するなど、通常のアルバイトでは得難い経験をしながらお給料をいただける環境は、このオフィスならではの魅力だと思います。</p><h4>4年間を振り返って、未来の慶應生へ向けた熱いメッセージをお願いします！</h4><p>右も左も分からないまま見学会に参加し飛び込みましたが、振り返ると「あの時決断して本当に良かった」と心から思っています。大学生活や就活の相談もできる温かいコミュニティであり、自分を大きく成長させてくれる機会に溢れています。ぜひオフィスに入って、最高に充実した4年間を過ごしてください！</p></div>
+        <div class="voice-full" hidden><h4>ここでの仕事や経験が、就活や自己PRにどう役立ちましたか？</h4><p>2年生の早い段階からリーダーを任される機会が多く、チームでプロジェクトを動かした経験や困難を乗り越えたエピソードは就活の大きな強みになりました。また、半年に一度ある先輩や社員の方との面談は、自身の長所や次の目標を確認し、客観的に自分を振り返る自己分析の場として非常に役立ちました。</p><h4>学生同士でプロジェクトを動かす中で、一番「成長できた」と感じた瞬間や壁は何ですか？</h4><p>周囲を巻き込んでプロジェクトを動かした瞬間です。最初は一人でやり遂げることが良いと思っていたのですが、先輩からアドバイスを頂いて、先輩や後輩に自発的に協力を求めるようになってから、チームでスムーズに仕事を進められるようになり、自身の成長を実感しました。</p><figure class="vd-photo"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27640%27%20height%3D%27420%27%20viewBox%3D%270%200%20640%20420%27%3E%3Crect%20width%3D%27640%27%20height%3D%27420%27%20fill%3D%27%23EAF7FE%27/%3E%3Crect%20x%3D%2712%27%20y%3D%2712%27%20width%3D%27616%27%20height%3D%27396%27%20rx%3D%2722%27%20fill%3D%27none%27%20stroke%3D%27%2329ABE2%27%20stroke-width%3D%273%27%20stroke-dasharray%3D%2710%2010%27/%3E%3Ctext%20x%3D%27320%27%20y%3D%27200%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2734%27%20font-weight%3D%27700%27%20fill%3D%27%231D3C72%27%3E%E5%86%99%E7%9C%9F%E6%BA%96%E5%82%99%E4%B8%AD%3C/text%3E%3Ctext%20x%3D%27320%27%20y%3D%27250%27%20text-anchor%3D%27middle%27%20font-family%3D%27sans-serif%27%20font-size%3D%2722%27%20fill%3D%27%234a6a92%27%3E%E3%82%AA%E3%83%95%E3%82%A3%E3%82%B9%E3%81%A7%E3%81%AE%E4%BC%9A%E8%AD%B0%E4%B8%AD%E3%81%AE%E6%A7%98%E5%AD%90%3C/text%3E%3C/svg%3E" alt="オフィスでの会議中の様子（写真準備中）"><figcaption>オフィスでの会議中の様子</figcaption></figure><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>社会で必要となる実践的なスキルを磨きながら、自分自身も成長して働ける点です。外部の方とのやり取りを通じたビジネスマナーはもちろん、自ら企画を考えリーダーとして推進するなど、通常のアルバイトでは得難い経験をしながらお給料をいただける環境は、このオフィスならではの魅力だと思います。</p><h4>4年間を振り返って、未来の慶應生へ向けた熱いメッセージをお願いします！</h4><p>右も左も分からないまま見学会に参加し飛び込みましたが、振り返ると「あの時決断して本当に良かった」と心から思っています。大学生活や就活の相談もできる温かいコミュニティであり、自分を大きく成長させてくれる機会に溢れています。ぜひオフィスに入って、最高に充実した4年間を過ごしてください！</p></div>
       </div>
     </div>
   </div>
