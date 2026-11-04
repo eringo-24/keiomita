@@ -248,7 +248,7 @@ section{ padding: 56px 0; }
   padding:3px 10px; border-radius:999px; margin-bottom:10px;
 }
 .work-head h3{ margin:0 0 6px; font-size:1.02rem; color:var(--sky-dark); }
-.work-head .keyword{ font-weight:900; color: var(--red-dark); font-size:.95rem; }
+.work-head .keyword{ font-weight:900; color: var(--red-dark); font-size:.95rem; font-family:'Zen Maru Gothic','Zen Kaku Gothic New','Noto Sans JP',sans-serif; }
 .work-head::after{
   content:"+"; position:absolute; right:18px; top:24px; font-size:1.5rem; font-weight:900; color:var(--sky);
 }
@@ -259,7 +259,22 @@ section{ padding: 56px 0; }
 .work-body p:last-child{ padding-bottom:22px; }
 @media (max-width:700px){ .work-grid{ grid-template-columns: 1fr; } }
 
-.people-scroll{ display:flex; gap:18px; overflow-x:auto; padding:6px 4px 20px; scroll-snap-type:x mandatory; }
+.people-scroll{ display:flex; gap:18px; overflow-x:auto; padding:6px 4px 20px; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; }
+.people-scroll::-webkit-scrollbar{ display:none; }
+.people-scroll .people-card{ scroll-snap-align:start; }
+.people-carousel{ position:relative; }
+.people-arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:44px; height:44px; border-radius:50%; border:none;
+  background:rgba(255,255,255,.9); box-shadow:0 4px 14px rgba(15,126,176,.18);
+  color:var(--sky-dark); font-size:1.5rem; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  z-index:5; transition:background .15s ease, transform .15s ease;
+}
+.people-arrow:hover{ background:#fff; transform:translateY(-50%) scale(1.06); }
+.people-arrow-prev{ left:-6px; }
+.people-arrow-next{ right:-6px; }
+@media (max-width:700px){ .people-arrow{ width:36px; height:36px; font-size:1.2rem; } .people-arrow-prev{ left:0; } .people-arrow-next{ right:0; } }
 .people-card{
   flex:0 0 240px; scroll-snap-align:start; background:#fff; border-radius: var(--radius-m);
   overflow:hidden; border:1px solid var(--line);
@@ -716,6 +731,9 @@ body{ color:var(--navy); }
 .vd-photo{ margin:16px 0; }
 .vd-photo img{ width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:18px; box-shadow:0 8px 20px rgba(15,126,176,.18); }
 .vd-photo figcaption{ margin-top:6px; font-size:.8rem; color:#6a7690; text-align:center; }
+.vd-photo.vd-photo-2col{ display:grid; grid-template-columns:3fr 2fr; gap:10px; }
+.vd-photo.vd-photo-2col figcaption{ grid-column:1 / -1; }
+.vd-photo.vd-photo-2col img{ aspect-ratio:auto; height:200px; }
 .vd-top{ margin-top:0; }
 .vd-top img{ aspect-ratio:16/10; }
 
@@ -798,6 +816,22 @@ body{ color:var(--navy); }
   .hslide-main .hcopy.hcopy-split{ left:0; right:0; width:auto; transform:none; padding:96px max(76px, calc((100% - 1180px)/2 + 76px)) 36px; }
   .hcopy-split .h1a,.hcopy-split .h1b{ font-size:5.4rem; }
 }
+/* ヒーローCTA：大きく・中央・目立たせる */
+.hero8-cta-wrap{ text-align:center; }
+.hero8-cta-wrap .tags8{ justify-content:center; margin-left:auto; margin-right:auto; }
+.hero8-cta{ display:flex; flex-direction:column; align-items:center; }
+.hero8-cta .btn-primary{
+  font-size:1.5rem; padding:26px 80px; min-width:min(520px,92%);
+  box-shadow:0 12px 30px rgba(232,65,47,.5);
+  animation:ctaPulse 2.2s ease-in-out infinite;
+}
+.hero8-cta .btn-primary:hover{ transform:translateY(-3px) scale(1.03); }
+@keyframes ctaPulse{
+  0%,100%{ box-shadow:0 12px 30px rgba(232,65,47,.5), 0 0 0 0 rgba(232,65,47,.45); }
+  50%{ box-shadow:0 12px 30px rgba(232,65,47,.5), 0 0 0 16px rgba(232,65,47,0); } }
+@media (max-width:480px){ .hero8-cta .btn-primary{ font-size:1.2rem; padding:20px 28px; } }
+@media (prefers-reduced-motion:reduce){ .hero8-cta .btn-primary{ animation:none; } }
+
 </style>
 </head>
 <body id="top">
@@ -941,7 +975,7 @@ body{ color:var(--navy); }
       <div class="message-qa">
         <div class="message-q">責任者から見た広報研究所とは？</div>
         <p class="message-a">
-          ナガセ広報研究所 慶應三田オフィスでは、現役の慶應生が、全国の大学を紹介するYouTubeチャンネル「東進TV」に投稿する動画や東進の広報マンガの企画から制作・納品までを担っています。1・2年生は担当案件を自らの手でやりきる力を、3・4年生はチームを率いる力を磨くことができ、「学びながらはたらく」ことができるユニークな場です。働く学生たちの想いは、新しいことをしたい、普通とは違う経験をしたい、自分を成長させたい、動画編集したいなど様々。君も新しい挑戦をしませんか？
+          ナガセ広報研究所 慶應三田オフィスでは、現役の慶應生が、全国の大学を紹介するYouTubeチャンネル「東進TV」に投稿する動画や東進の広報マンガの企画から制作・納品までを担っています。1・2年生は担当案件を自らの手でやりきる力を、3・4年生はチームを率いる力を磨くことのでき、「学びながらはたらく」ことができるユニークな場です。働く学生たちの想いは、新しいことをしたい、普通とは違う経験をしたい、自分を成長させたい、動画編集したいなど様々。君も新しい挑戦をしませんか？
         </p>
         
       </div>
@@ -1056,14 +1090,16 @@ body{ color:var(--navy); }
     </div>
   </div>
   <div class="wrap">
-    <div class="people-scroll reveal">
-      <div class="people-card">
+    <div class="people-carousel">
+      <button class="people-arrow people-arrow-prev" id="pPrev" type="button" aria-label="前へ">‹</button>
+      <div class="people-scroll reveal">
+        <div class="people-card">
         <img src="images/voice/nishio_thumb.webp" alt="Nさん">
         <div class="body">
           <span class="team-tag">動画（編集）</span>
           <div class="name">Nさん</div>
           <div class="dept">慶應義塾大学 薬学部2年</div>
-          <div class="quote">動画編集への興味がきっかけでした。慶應生だけなので馴染みやすく安心です</div>
+          <div class="quote">動画編集への興味がきっかけでした。慶應生だけなので馴染みやすく安心です！</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
         <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>自宅に届いた募集ハガキをきっかけに参加した見学会で、元々関心のあった動画編集の仕事にとても惹かれました。また、働くメンバーが全員慶應生なので「ここなら周りとすぐに馴染めそう」という安心感があったことも大きな決め手です。大学の講義やサークルと無理なく両立しながら成長できる環境だと感じて選びました。</p><h4>今行っている業務はどのようなものですか？詳しく教えてください。</h4><p>東進TVの大学紹介動画の編集を行っています！どうすれば高校生に興味を持ってもらえるか、最後まで楽しく見てもらえるかなどを考えながら、動画全体の構成から、テロップやインサートの入れ方といった細部まで、こだわりながら編集を進めています。</p><figure class="vd-photo"><img src="images/voice/nishio_work.webp" alt="動画編集の作業をしている様子" style="object-position:center 45%"><figcaption>動画編集の作業をしている様子</figcaption></figure><h4>業務を行う上でやりがいを感じるのはどのような時ですか？</h4><p>編集を進めていくにつれて、徐々に完成形へと近づいていく様を見るとやりがいを感じます。</p><h4>学生生活との両立はどのようにしていますか？</h4><p>試験前は短時間、長期休みは長時間というように、自分の予定に合わせてシフトを調節しています！シフトの融通が効くのもこのオフィスのいい所だと感じているので、勉強、サークル、バイトのどれも頑張りたい人には特におすすめです！</p></div>
@@ -1077,7 +1113,7 @@ body{ color:var(--navy); }
           <div class="quote">大学帰りに通いやすい立地と、アットホームな雰囲気が魅力です</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>「大学生活で何かに挑戦したい」と思い参加した見学会で、先輩方が仕事内容を丁寧に教えるだけでなく、履修相談にも親身に乗ってくださいました。その温かな雰囲気に惹かれ、ここで働くと決めました。大学からのアクセスの良さや、授業に合わせて無理なく働けるフレックス制である点も大きな魅力です。</p><figure class="vd-photo"><img src="images/voice/hosomi_work.webp" alt="" onerror="this.closest('figure').remove()"></figure><h4>今行っている業務はどのようなものですか？</h4><p>全国の高校生の自宅に届く東進のマンガを制作しています。マンガの原案作成から業者の方とのやり取りまで1からすべて行います！読者の心を動かす分析力や構成力はもちろん、メールやミーティングを通じて社会人に必要なビジネスマナーも身に付きます。自分のアイデアを形にし、それが高校生へ届くことに大きなやりがいを感じています。</p><h4>一緒に働く仲間やオフィスの雰囲気はどんな感じですか？</h4><p>穏やかでアットホームな雰囲気です！分からないことがあれば、社員さんや先輩、同期にすぐ質問できます。社員さんも親身にサポートしてくださるため、安心して業務に取り組めます。</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>歓迎会やBBQ、ご飯会など年に数回開催されていて、プライベートでも楽しく交流しています。</p></div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>「大学生活で何かに挑戦したい」と思い参加した見学会で、先輩方が仕事内容を丁寧に教えるだけでなく、履修相談にも親身に乗ってくださいました。その温かな雰囲気に惹かれ、ここで働くと決めました。大学からのアクセスの良さや、授業に合わせて無理なく働けるフレックス制である点も大きな魅力です。</p><figure class="vd-photo vd-photo-2col"><img src="images/voice/hosomi_work_1.webp" alt="" onerror="this.remove()"><img src="images/voice/hosomi_work_2.webp" alt="" onerror="this.remove()"></figure></p><h4>一緒に働く仲間やオフィスの雰囲気はどんな感じですか？</h4><p>穏やかでアットホームな雰囲気です！分からないことがあれば、社員さんや先輩、同期にすぐ質問できます。社員さんも親身にサポートしてくださるため、安心して業務に取り組めます。</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>歓迎会やBBQ、ご飯会など年に数回開催されていて、プライベートでも楽しく交流しています。</p></div>
       </div>
       <div class="people-card">
         <img src="images/voice/tamashiro_thumb.webp" alt="Tさん">
@@ -1122,7 +1158,9 @@ body{ color:var(--navy); }
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
         <div class="voice-full" hidden><h4>ここでの仕事や経験が、就活や自己PRにどう役立ちましたか？</h4><p>2年生の早い段階からリーダーを任される機会が多く、チームでプロジェクトを動かした経験や困難を乗り越えたエピソードは就活の大きな強みになりました。また、半年に一度ある先輩や社員の方との面談は、自身の長所や次の目標を確認し、客観的に自分を振り返る自己分析の場として非常に役立ちました。</p><figure class="vd-photo"><img src="images/voice/takara_work.webp" alt="" onerror="this.closest('figure').remove()"></figure><h4>学生同士でプロジェクトを動かす中で、一番「成長できた」と感じた瞬間や壁は何ですか？</h4><p>周囲を巻き込んでプロジェクトを動かした瞬間です。最初は一人でやり遂げることが良いと思っていたのですが、先輩からアドバイスを頂いて、先輩や後輩に自発的に協力を求めるようになってから、チームでスムーズに仕事を進められるようになり、自身の成長を実感しました。</p><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>社会で必要となる実践的なスキルを磨きながら、自分自身も成長して働ける点です。外部の方とのやり取りを通じたビジネスマナーはもちろん、自ら企画を考えリーダーとして推進するなど、通常のアルバイトでは得難い経験をしながらお給料をいただける環境は、このオフィスならではの魅力だと思います。</p><h4>4年間を振り返って、未来の慶應生へ向けた熱いメッセージをお願いします！</h4><p>右も左も分からないまま見学会に参加し飛び込みましたが、振り返ると「あの時決断して本当に良かった」と心から思っています。大学生活や就活の相談もできる温かいコミュニティであり、自分を大きく成長させてくれる機会に溢れています。ぜひオフィスに入って、最高に充実した4年間を過ごしてください！</p></div>
+        </div>
       </div>
+      <button class="people-arrow people-arrow-next" id="pNext" type="button" aria-label="次へ">›</button>
     </div>
   </div>
 </section>
@@ -1417,6 +1455,40 @@ document.querySelectorAll('.work-head').forEach(function(btn){
     card.appendChild(table);
     container.appendChild(card);
   });
+})();
+
+/* ▼ 先輩の声：無限ループ ▼ */
+(function(){
+  var sc=document.querySelector('.people-scroll');
+  var orig=Array.prototype.slice.call(sc.children);
+  var n=orig.length;
+  // 前後に1セットずつ複製（計3セット）
+  orig.forEach(function(c){
+    var a=c.cloneNode(true); a.setAttribute('aria-hidden','true'); sc.insertBefore(a,orig[0]);
+    var b=c.cloneNode(true); b.setAttribute('aria-hidden','true'); sc.appendChild(b);
+  });
+  var cards=sc.children, w=0;
+  function measure(){
+    w=cards[n].getBoundingClientRect().left-cards[0].getBoundingClientRect().left; // 1セット分の幅
+  }
+  function jump(x){
+  sc.style.scrollSnapType='none';
+  sc.scrollTo({left:x, behavior:'instant'});
+  requestAnimationFrame(function(){ sc.style.scrollSnapType=''; });
+  }
+  measure(); jump(w); // 中央セットから開始
+  var t;
+  sc.addEventListener('scroll',function(){
+    clearTimeout(t);
+    t=setTimeout(function(){
+      if(sc.scrollLeft<w*0.5) jump(sc.scrollLeft+w);
+      else if(sc.scrollLeft>w*1.5) jump(sc.scrollLeft-w);
+    },80);
+  },{passive:true});
+  window.addEventListener('resize',function(){ measure(); jump(w); });
+    function step(){ return cards[1].getBoundingClientRect().left-cards[0].getBoundingClientRect().left; } // カード幅＋間隔
+  document.getElementById('pPrev').addEventListener('click',function(){ sc.scrollBy({left:-step(), behavior:'smooth'}); });
+  document.getElementById('pNext').addEventListener('click',function(){ sc.scrollBy({left: step(), behavior:'smooth'}); });
 })();
 
 /* ▼ 先輩の声ダイアログ・固定ナビ ▼ */
