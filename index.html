@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ナガセ広報研究所 慶應三田オフィス 長期インターン募集（v17）</title>
+<title>ナガセ広報研究所 慶應三田オフィス 長期インターン募集（v18）</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -832,6 +832,12 @@ body{ color:var(--navy); }
 @media (max-width:480px){ .hero8-cta .btn-primary{ font-size:1.2rem; padding:20px 28px; } }
 @media (prefers-reduced-motion:reduce){ .hero8-cta .btn-primary{ animation:none; } }
 
+
+/* v18：右下の「見学会に申し込む」は、メインビジュアル直後の申し込みボタンが画面から消えた瞬間から表示 */
+.fixed-cta{ opacity:0; visibility:hidden; pointer-events:none; transform:translateY(14px);
+  transition:opacity .3s ease, transform .3s ease, visibility 0s linear .3s; }
+.fixed-cta.show{ opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
+  transition:opacity .3s ease, transform .3s ease, visibility 0s; }
 </style>
 </head>
 <body id="top">
@@ -1534,6 +1540,18 @@ document.querySelectorAll('.work-head').forEach(function(btn){
   document.getElementById('hNext').addEventListener('click',function(){ show(i+1); start(); });
   dots.forEach(function(d,j){ d.addEventListener('click',function(){ show(j); start(); }); });
   show(0); start();
+})();
+(function(){
+  /* 右下の申し込みボタン：メインビジュアル直後のボタンが画面上に消えたら表示（戻ると非表示） */
+  var fc=document.querySelector('.fixed-cta'), target=document.querySelector('.hero8-cta .btn-primary');
+  if(!fc||!target) return;
+  function check(){ fc.classList.toggle('show', target.getBoundingClientRect().bottom<0); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      var e=en[0]; fc.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.bottom<0);
+    },{threshold:0}).observe(target);
+  } else { window.addEventListener('scroll',check,{passive:true}); }
+  check();
 })();
 (function(){
   var t=document.getElementById('toTop');
