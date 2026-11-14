@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ナガセ広報研究所 慶應三田オフィス 長期インターン募集（v22）</title>
+<title>ナガセ広報研究所 慶應三田オフィス</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -888,6 +888,77 @@ body{ color:var(--navy); }
 }
 .ol-tile:nth-child(2) img{ object-position:center 40%; } .ol-tile:nth-child(3) img{ object-position:center 45%; }
 .ol-tile:nth-child(4) img{ object-position:center 35%; } .ol-tile:nth-child(5) img{ object-position:55% 40%; }
+
+/* ===== v24：マンガカードのサムネ（表紙2作品）。カードが横長なら2枚並べ、縦長なら1枚ずつスワイプ ===== */
+#work-3{ container-type:inline-size; }
+.manga-thumb{ aspect-ratio:3/4; background:var(--sky-soft); }
+.manga-covers{ position:absolute; inset:0; display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
+.manga-covers::-webkit-scrollbar{ display:none; }
+.manga-covers img{ flex:0 0 100%; width:100%; height:100%; object-fit:contain; padding:14px 0; scroll-snap-align:center; transition:none; }
+.manga-thumb:hover img{ transform:none; }
+.manga-hint{ position:absolute; left:50%; bottom:8px; transform:translateX(-50%); background:rgba(255,255,255,.9); color:var(--navy); font-size:.7rem; font-weight:700; padding:2px 12px; border-radius:999px; pointer-events:none; }
+@container (min-width: 520px){
+  .manga-thumb{ aspect-ratio:16/9; }
+  .manga-covers{ overflow:visible; justify-content:center; gap:14px; }
+  .manga-covers img{ flex:0 0 auto; width:auto; max-width:48%; padding:12px 0; }
+  .manga-hint{ display:none; }
+}
+
+/* ===== v25：長3ハガキのサムネ（4枚）。カードが広ければ4枚、狭ければ2枚ずつ表示してスワイプ ===== */
+#work-4{ container-type:inline-size; }
+.hagaki-thumb{ aspect-ratio:auto; padding:16px 14px 30px; background:var(--sky-soft); }
+.hagaki-row{ display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
+.hagaki-row::-webkit-scrollbar{ display:none; }
+.hagaki-row img{ flex:0 0 auto; width:calc((100% - 10px)/2); max-width:none; height:auto; scroll-snap-align:start; border-radius:6px; box-shadow:0 4px 12px rgba(15,60,110,.2); transition:none; }
+.hagaki-thumb:hover img{ transform:none; }
+.hagaki-hint{ position:absolute; left:50%; bottom:6px; transform:translateX(-50%); background:rgba(255,255,255,.9); color:var(--navy); font-size:.7rem; font-weight:700; padding:2px 12px; border-radius:999px; pointer-events:none; white-space:nowrap; }
+@container (min-width: 560px){
+  .hagaki-row{ overflow:visible; }
+  .hagaki-row img{ width:calc((100% - 30px)/4); }
+  .hagaki-hint{ display:none; }
+  .hagaki-thumb{ padding-bottom:16px; }
+}
+/* 先輩の声：カード全体がクリックできる */
+.people-card{ cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
+.people-card:hover{ transform:translateY(-3px); box-shadow:0 12px 28px rgba(15,126,176,.2); }
+
+/* ===== v26：先輩の声のデザイン調整 ===== */
+/* 担当・名前・学部のフォントを Zen Maru Gothic（丸ゴシック）に */
+.people-card .team-tag,.people-card .name,.people-card .dept,
+.voice-dialog-head .team-tag,.voice-dialog-head .name,.voice-dialog-head .dept{ font-family:'Zen Maru Gothic',sans-serif; }
+.people-card .name,.voice-dialog-head .name{ font-weight:900; }
+.people-card .dept,.voice-dialog-head .dept{ font-weight:700; }
+/* 見出しの吹き出しは少し細く（700→500） */
+.people-card .quote{ font-weight:500; }
+
+/* ===== v27：矢印で切り替え。同じ方向に進み続けても一周する ===== */
+.loop-clone{ display:block; }
+.loop-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:34px; height:34px; border-radius:50%; border:none; background:rgba(255,255,255,.94); color:var(--navy); font-size:1.5rem; line-height:1; padding:0 0 3px; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 2px 8px rgba(15,60,110,.3); }
+.loop-arrow.prev{ left:8px; } .loop-arrow.next{ right:8px; }
+.loop-arrow:hover{ background:#fff; }
+.hagaki-thumb{ padding-bottom:16px; }
+@container (min-width: 520px){ #work-3 .loop-clone,#work-3 .loop-arrow{ display:none; } }
+@container (min-width: 560px){ #work-4 .loop-clone,#work-4 .loop-arrow{ display:none; } }
+
+/* 「インタビューを読む」：白地・水色の枠線のカプセル＋右端に丸い矢印 */
+.people-card .voice-open{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  width:100%; background:#fff; color:var(--sky-dark);
+  border:2px solid var(--sky); border-radius:999px;
+  padding:5px 6px 5px 20px;
+  font-family:'Zen Maru Gothic',sans-serif; font-weight:900; font-size:.92rem; letter-spacing:.04em;
+  text-align:left; cursor:pointer;
+  transition:background .2s ease, box-shadow .2s ease;
+}
+.people-card .voice-open::after{
+  content:"→"; flex:0 0 auto; width:32px; height:32px; margin:0;
+  border-radius:50%; background:var(--sky); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; line-height:1;
+}
+.people-card .voice-open:hover{ background:var(--sky-soft); box-shadow:0 4px 12px rgba(41,171,226,.25); }
+
+
 </style>
 </head>
 <body id="top">
@@ -903,9 +974,7 @@ body{ color:var(--navy); }
 </nav>
 <a class="fixed-cta" href="#">見学会に申し込む</a>
 <a class="to-top" id="toTop" href="#top" aria-label="ページ上部へ戻る"><svg viewBox="0 0 24 24"><polyline points="6 15 12 9 18 15" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<div class="common-banner-placeholder">
-  ここには東進サイト共通のヘッダーが入ります。<br>
-</div>
+
 
 <header class="hero8">
   <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
@@ -1090,7 +1159,10 @@ body{ color:var(--navy); }
       </div>
 
       <div id="work-2" class="work-card">
-        <div class="work-thumb vertical"><img src="images/work/tatedouga.webp" alt="ショート（縦）動画のサムネイル（実際の画像に差し替え予定）"></div>
+        <a class="work-thumb vertical" href="https://www.youtube.com/@toshintv" target="_blank" rel="noopener">
+          <img src="images/work/tatedouga.webp" alt="ショート（縦）動画のサムネイル（実際の画像に差し替え予定）">
+          <span class="work-thumb-badge">東進TVを見る ↗</span>
+        </a>
         <button class="work-head">
           <span class="work-num">02</span>
           <h3>ショート動画の企画・編集・投稿</h3>
@@ -1103,7 +1175,14 @@ body{ color:var(--navy); }
       </div>
 
       <div id="work-3" class="work-card">
-        <div class="work-thumb"><img src="images/work/manga.webp" alt="東進ハイスクールのマンガ「君だけの海図」"></div>
+        <div class="work-thumb manga-thumb">
+          <div class="manga-covers loop-row">
+            <img src="images/work/manga1.webp" alt="マンガ「二刀流の夏。」の表紙（2026 高1 夏期特別招待講習）">
+            <img src="images/work/manga2.webp" alt="マンガ「その先へ、跳べ！」の表紙（2026 高1 冬期特別招待講習）">
+          </div>
+          <button type="button" class="loop-arrow prev" aria-label="前へ">‹</button>
+          <button type="button" class="loop-arrow next" aria-label="次へ">›</button>
+        </div>
         <button class="work-head">
           <span class="work-num">03</span>
           <h3>マンガ制作（新作・改訂）</h3>
@@ -1117,6 +1196,16 @@ body{ color:var(--navy); }
       </div>
 
       <div id="work-4" class="work-card">
+        <div class="work-thumb hagaki-thumb">
+          <div class="hagaki-row loop-row">
+            <img src="images/work/hagaki1.webp" alt="実際に制作した長3ハガキ：高3 夏期特別招待講習ハガキ（表面）">
+            <img src="images/work/hagaki2.webp" alt="実際に制作した長3ハガキ：高3 夏期特別招待講習ハガキ（裏面）">
+            <img src="images/work/hagaki3.webp" alt="実際に制作した長3ハガキ：高2 冬期特別招待講習ハガキ（表面）">
+            <img src="images/work/hagaki4.webp" alt="実際に制作した長3ハガキ：高2 冬期特別招待講習ハガキ（裏面）">
+          </div>
+          <button type="button" class="loop-arrow prev" aria-label="前へ">‹</button>
+          <button type="button" class="loop-arrow next" aria-label="次へ">›</button>
+        </div>
         <button class="work-head">
           <span class="work-num">04</span>
           <h3>ハガキのデザイン制作</h3>
@@ -1126,7 +1215,6 @@ body{ color:var(--navy); }
           <p>各家庭へ届く東進の特別招待講習のハガキを制作します。</p>
           <p>対象時期や学年に合わせたターゲット層の分析・設定から、キャッチコピーの考案、デザイン作成、掲載する講座や合格体験記の選定まで一貫して担当し、1枚のハガキを企画から完成まで作り上げていきます。</p>
           <p>高校生の心に響くキャッチコピーを考える力が身につくほか、実際のハガキ制作を通してデザイン力や構成力も養うことができます。</p>
-          <figure class="work-sample"><img src="https://picsum.photos/seed/hagaki-sample/640/420" alt="実際に制作した長3ハガキ（実際の作品画像に差し替え予定）"><figcaption>実際に制作した長3ハガキ</figcaption></figure>
         </div>
       </div>
 
@@ -1374,9 +1462,7 @@ body{ color:var(--navy); }
   </div>
 </section>
 
-<div class="common-banner-placeholder">
-  ここには東進サイト共通のフッターが入ります。<br>
-</div>
+
 <footer class="mock-footer">Copyright (C) Nagase Brothers Inc.</footer>
 
 <script>
@@ -1564,17 +1650,19 @@ document.querySelectorAll('.work-head').forEach(function(btn){
 /* ▼ 先輩の声ダイアログ・固定ナビ ▼ */
 (function(){
   var dlg=document.getElementById('voiceDialog');
-  document.querySelectorAll('.voice-open').forEach(function(b){
-    b.addEventListener('click',function(){
-      var c=b.closest('.people-card');
-      document.getElementById('vdTeam').textContent=c.querySelector('.team-tag').textContent;
-      document.getElementById('vdName').textContent=c.querySelector('.name').textContent;
-      document.getElementById('vdDept').textContent=c.querySelector('.dept').textContent;
-      document.getElementById('vdHead').textContent=c.querySelector('.quote').textContent;
-      var ti=document.getElementById('vdTop'); ti.src=c.querySelector('img').src; ti.alt=c.querySelector('.name').textContent+'の写真';
-      document.getElementById('vdBody').innerHTML=c.querySelector('.voice-full').innerHTML;
-      dlg.showModal();
-    });
+  function openVoice(c){
+    document.getElementById('vdTeam').textContent=c.querySelector('.team-tag').textContent;
+    document.getElementById('vdName').textContent=c.querySelector('.name').textContent;
+    document.getElementById('vdDept').textContent=c.querySelector('.dept').textContent;
+    document.getElementById('vdHead').textContent=c.querySelector('.quote').textContent;
+    var ti=document.getElementById('vdTop'); ti.src=c.querySelector('img').src; ti.alt=c.querySelector('.name').textContent+'の写真';
+    document.getElementById('vdBody').innerHTML=c.querySelector('.voice-full').innerHTML;
+    dlg.showModal();
+  }
+  /* カードのどこをクリック／タップしても詳細を開く（ボタンも同じ動作） */
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('.people-card');
+    if(c && c.querySelector('.voice-full')) openVoice(c);
   });
   dlg.querySelector('.voice-close').addEventListener('click',function(){dlg.close();});
   dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
@@ -1620,6 +1708,29 @@ document.querySelectorAll('.work-head').forEach(function(btn){
 (function(){
   var t=document.getElementById('toTop');
   window.addEventListener('scroll',function(){ t.classList.toggle('show',window.scrollY>500); },{passive:true});
+})();
+
+/* ▼ マンガ・ハガキのサムネ：矢印＋無限ループ（複製を前後に付け、端に来たら一周分ジャンプ） ▼ */
+(function(){
+  document.querySelectorAll('.loop-row').forEach(function(row){
+    var thumb=row.parentNode, items=Array.prototype.slice.call(row.children), n=items.length, busy=false;
+    function mk(it){ var c=it.cloneNode(true); c.classList.add('loop-clone'); c.setAttribute('aria-hidden','true'); c.alt=''; return c; }
+    items.forEach(function(it){ row.appendChild(mk(it)); });
+    items.slice().reverse().forEach(function(it){ row.insertBefore(mk(it), row.firstChild); });
+    function setW(){ return row.children[n].offsetLeft-row.children[0].offsetLeft; }
+    function active(){ return row.scrollWidth>row.clientWidth+2 && row.children[0].offsetWidth>0; }
+    function home(){ if(active()){ row.style.scrollSnapType='none'; row.scrollLeft=setW(); row.style.scrollSnapType=''; } }
+    function wrap(){
+      if(!active()) return; var w=setW();
+      if(row.scrollLeft<w*0.5){ row.style.scrollSnapType='none'; row.scrollLeft+=w; row.style.scrollSnapType=''; }
+      else if(row.scrollLeft>w*1.5){ row.style.scrollSnapType='none'; row.scrollLeft-=w; row.style.scrollSnapType=''; }
+    }
+    row.addEventListener('scroll',function(){ clearTimeout(busy); busy=setTimeout(wrap,90); });
+    function step(){ return row.children[1].offsetLeft-row.children[0].offsetLeft; }
+    thumb.querySelector('.prev').addEventListener('click',function(){ wrap(); row.scrollBy({left:-step(),behavior:'smooth'}); });
+    thumb.querySelector('.next').addEventListener('click',function(){ wrap(); row.scrollBy({left: step(),behavior:'smooth'}); });
+    window.addEventListener('resize',home); window.addEventListener('load',home); home();
+  });
 })();
 </script>
 </body>
