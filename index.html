@@ -957,6 +957,45 @@ body{ color:var(--navy); }
 .people-card .voice-open:hover{ background:var(--sky-soft); box-shadow:0 4px 12px rgba(41,171,226,.25); }
 
 
+/* ===== 申込ボタン（大）：スマホでも2行に折り返さないサイズに ===== */
+.hero8-cta-wrap{ padding-top:14px; }
+.hero8-cta-wrap .tags8{ margin-bottom:12px; }
+.hero8-cta .tel{ font-size:clamp(.62rem,2.9vw,.72rem); }
+.hero8-cta .btn-primary{ white-space:nowrap; min-width:0; max-width:100%; font-size:clamp(.95rem,4.6vw,1.2rem); padding:14px clamp(20px,6vw,30px); }
+.hero8-cta .btn-primary::after{ margin-left:.5em; }
+@media (min-width:768px){
+  .hero8-cta .btn-primary{ font-size:1.3rem; padding:20px 72px; min-width:420px; }
+}
+
+/* ===== トップ下のボタン（仕事内容／先輩の声／雇用条件／よくある質問）：横長カード＋左の赤帯＋右の矢印 ===== */
+.toc8 .toc-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; width:100%; box-sizing:border-box; max-width:640px; padding:0 16px; }
+.toc8 .toc-card{ min-width:0; display:flex; flex-direction:row; align-items:center; gap:8px; text-align:left; min-height:0;
+  padding:10px 12px 10px 18px; border-radius:18px; box-shadow:0 6px 16px rgba(29,60,114,.1); background:#fff; border:1px solid #E3EDF8; }
+.toc8 .toc-card::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:7px; background:var(--red); }
+.toc8 .toc-card::after{ display:none; }
+.toc8 .toc-icon-circle{ flex:0 0 auto; width:36px; height:36px; margin:0; background:#E4F0FB; }
+.toc8 .toc-icon-circle svg{ width:18px; height:18px; stroke:var(--navy); stroke-width:2; }
+.toc8 .toc-label{ flex:1 1 auto; min-width:0; margin:0; font-family:'Zen Maru Gothic',sans-serif; font-weight:900; font-size:clamp(.78rem,3.5vw,.95rem); color:var(--navy); white-space:nowrap; }
+.toc8 .toc-arrow{ flex:0 0 auto; display:flex; }
+.toc8 .toc-arrow-icon{ width:16px; height:16px; stroke:var(--navy); stroke-width:2; }
+.toc8 .toc-card:hover .toc-arrow-icon{ transform:translateX(3px); }
+.toc8 .toc-arrow-icon{ transition:transform .2s ease; }
+@media (max-width:359px){ .toc8 .toc-arrow{ display:none; } .toc8 .toc-card{ padding:8px 6px 8px 14px; gap:6px; } .toc8 .toc-icon-circle{ width:28px; height:28px; } .toc8 .toc-icon-circle svg{ width:15px; height:15px; } .toc8 .toc-label{ font-size:.66rem; letter-spacing:0; } }
+@media (min-width:768px){
+  .toc8 .toc-grid{ max-width:720px; gap:14px; padding:0 24px; }
+}
+@media (min-width:1000px){
+  .toc8 .toc-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; max-width:1040px; padding:0 24px; }
+  .toc8 .toc-label{ font-size:.98rem; }
+}
+@media (min-width:768px){
+  .toc8 .toc-card{ gap:12px; padding:16px 18px 16px 26px; border-radius:24px; }
+  .toc8 .toc-card::before{ width:9px; }
+  .toc8 .toc-icon-circle{ width:52px; height:52px; }
+  .toc8 .toc-icon-circle svg{ width:25px; height:25px; }
+  .toc8 .toc-label{ font-size:1.05rem; }
+  .toc8 .toc-arrow-icon{ width:22px; height:22px; }
+}
 </style>
 </head>
 <body id="top">
@@ -1057,7 +1096,7 @@ body{ color:var(--navy); }
       </span>
       <span class="toc-label">仕事内容</span>
       <span class="toc-arrow">
-        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
       </span>
     </a>
     <a class="toc-card" href="#people">
@@ -1066,7 +1105,7 @@ body{ color:var(--navy); }
       </span>
       <span class="toc-label">先輩の声</span>
       <span class="toc-arrow">
-        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
       </span>
     </a>
     <a class="toc-card" href="#conditions">
@@ -1075,7 +1114,7 @@ body{ color:var(--navy); }
       </span>
       <span class="toc-label">雇用条件</span>
       <span class="toc-arrow">
-        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
       </span>
     </a>
     <a class="toc-card" href="#faq">
@@ -1084,7 +1123,7 @@ body{ color:var(--navy); }
       </span>
       <span class="toc-label">よくある質問</span>
       <span class="toc-arrow">
-        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
+        <svg class="toc-arrow-icon" viewBox="0 0 24 24"><line x1="4" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
       </span>
     </a>
   </div>
@@ -1120,12 +1159,12 @@ body{ color:var(--navy); }
 </section>
 
 <div class="sns-follow">
-  <p>Instagram、Xのフォローもお願いします！！</p>
+  <p>オフィスの日常や、採用に関する最新情報を発信中！</p>
   <div class="sns-follow-icons">
     <a href="https://www.instagram.com/keio_toshin_intern/?hl=ja"><img src="images/sns/sns-insta.webp" alt="Instagram"></a>
     <a href="https://x.com/nagase_keio2024"><img src="images/sns/sns-x.webp" alt="X（旧Twitter）"></a>
   </div>
-  <p class="sns-note">採用情報の詳細はこちら！</p>
+  <p class="sns-note">Instagram・X のフォローをお待ちしています！</p>
 </div>
 
 <!-- ▼【改善】OUR WORKを大幅拡充：動画チーム／ショート動画チーム／マンガ・取材チーム ▼ -->
@@ -1142,7 +1181,7 @@ body{ color:var(--navy); }
 
       <div id="work-1" class="work-card">
         <a class="work-thumb" href="https://www.youtube.com/@toshintv" target="_blank" rel="noopener">
-          <img src="images/work/yokodouga.webp" alt="東進TVのサムネイル（実際のチャンネル画像に差し替え予定）">
+          <img src="images/work/yokodouga.webp" alt="東進TVのサムネイル">
           <span class="work-thumb-badge">東進TVを見る ↗</span>
         </a>
         <button class="work-head">
@@ -1159,7 +1198,7 @@ body{ color:var(--navy); }
 
       <div id="work-2" class="work-card">
         <a class="work-thumb vertical" href="https://www.youtube.com/@toshintv" target="_blank" rel="noopener">
-          <img src="images/work/tatedouga.webp" alt="ショート（縦）動画のサムネイル（実際の画像に差し替え予定）">
+          <img src="images/work/tatedouga.webp" alt="ショート動画のサムネイル">
           <span class="work-thumb-badge">東進TVを見る ↗</span>
         </a>
         <button class="work-head">
@@ -1220,7 +1259,7 @@ body{ color:var(--navy); }
 
       <div id="work-5" class="work-card">
         <a class="work-thumb" href="https://www.toshin.com/question_stop/" target="_blank" rel="noopener">
-          <img src="images/work/nayami.webp" alt="悩み相談サイトのトップ画面（実際のスクリーンショットに差し替え予定）">
+          <img src="images/work/nayami.webp" alt="悩み相談サイトのトップ画面">
           <span class="work-thumb-badge">サイトを見る ↗</span>
         </a>
         <button class="work-head">
