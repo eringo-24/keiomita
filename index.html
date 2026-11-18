@@ -329,7 +329,7 @@ section{ padding: 56px 0; }
 
 footer.mock-footer{ background:#fff; border-top:1px solid var(--line); text-align:center; padding:24px 20px; font-size:.76rem; color:#999; }
 
-/* ===== v6 追加 ===== */
+
 .todo{ color:#999; font-size:.8em; }
 .todo-block{ color:#999; font-style:italic; }
 .inline-link{ color:var(--sky-dark); font-weight:700; text-decoration:underline; }
@@ -364,7 +364,7 @@ footer.mock-footer{ background:#fff; border-top:1px solid var(--line); text-alig
 .quick-nav a:hover{ background:var(--sky-soft); }
 @media (max-width:480px){ .quick-nav a{ font-size:.7rem; padding:6px 8px; } .fixed-cta{ width:72px; height:72px; font-size:.64rem; } }
 
-/* ===== v7 デザインブラッシュアップ =====
+/* デザインブラッシュアップ 
    参考：大妻女子大（英字見出し＋矢印リンク＋繰り返しCTA）／舟伏（日英二層の見出し・SCROLL・丸み・装飾）／
    採用サイトのポップ系（ベース1〜2色＋補色、丸ゴシック、角丸、写真の切り抜き） */
 body{ overflow-x:hidden; }
@@ -479,7 +479,7 @@ section.section-alt::after{ bottom:-39px; transform:scaleY(-1); }
 @keyframes pulse{ 0%,100%{ box-shadow:0 8px 20px rgba(232,65,47,.45), 0 0 0 0 rgba(232,65,47,.35);} 50%{ box-shadow:0 8px 20px rgba(232,65,47,.45), 0 0 0 12px rgba(232,65,47,0);} }
 @media (prefers-reduced-motion:reduce){ .fixed-cta,.scroll-ind i{ animation:none; } .reveal{ transition:none; } }
 
-/* ===== v8：ChatGPT案（ヒーロー大写真・斜め見出し・ブロブ形・スライド）を取り込み ===== */
+/* ヒーロー大写真・斜め見出し・ブロブ形・スライド  */
 :root{ --navy:#1D3C72; }
 html{ scroll-padding-top:56px; }
 body{ color:var(--navy); }
@@ -609,7 +609,6 @@ body{ color:var(--navy); }
   .slider8-track{ padding-left:max(20px, calc((100vw - 1080px)/2)); }
 }
 
-/* ===== v9 修正 ===== */
 /* ヒーロー：写真とキャッチコピーを重ねない（スマホは縦並び、PCは左右） */
 .hero8-main{ position:relative; z-index:2; max-width:1180px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1fr); }
 .hero8-copy{ max-width:none; margin:0; }
@@ -639,7 +638,6 @@ body{ color:var(--navy); }
 .work-hint{ text-align:left; margin:6px 0 22px; }
 @media (prefers-reduced-motion:reduce){ .slide8{ transition:none; } }
 
-/* ===== v10：MTG（10/31）の意見を反映 ===== */
 /* オープニング写真：約1秒表示してフェードアウト */
 .splash{ position:fixed; inset:0; z-index:300; background:#fff; animation:splashOut .6s ease 1s forwards; }
 .splash img{ width:100%; height:100%; object-fit:cover; object-position:center 35%; }
@@ -740,7 +738,7 @@ body{ color:var(--navy); }
 /* SNS */
 .sns-note{ margin:14px 0 0; font-weight:900; font-size:1rem; color:var(--navy); }
 
-/* ===== v11：メインビジュアルを主役に（画面の約8割）／回る素材は3種類 ===== */
+/* メインビジュアルを主役に（画面の約8割）／回る素材は3種類  */
 .hero8{ position:relative; background:#fff; }
 .hero8 .blob{ display:none; }
 .hero8-top{ position:absolute; left:0; right:0; top:0; z-index:6; padding:14px 20px 0; max-width:1180px; margin:0 auto; pointer-events:none; }
@@ -793,7 +791,7 @@ body{ color:var(--navy); }
 .tv-go svg{ width:13px; height:13px; display:block; transition:transform .15s ease; }
 .tv-link:hover .tv-go svg{ transform:translate(2px,-2px); }
 
-/* v13：仕事中の写真は縦長でも顔が切れにくいよう中央寄せ */
+/* 仕事中の写真は縦長でも顔が切れにくいよう中央寄せ */
 .vd-photo img{ object-position:center 40%; }
 
 /* メインビジュアル：上に「未経験から／学びながら、」、下に「はたらく。／説明」。中央は人物のために空ける */
@@ -831,13 +829,13 @@ body{ color:var(--navy); }
 @media (prefers-reduced-motion:reduce){ .hero8-cta .btn-primary{ animation:none; } }
 
 
-/* v18：右下の「見学会に申し込む」は、メインビジュアル直後の申し込みボタンが画面から消えた瞬間から表示 */
+/* 右下の「見学会に申し込む」は、メインビジュアル直後の申し込みボタンが画面から消えた瞬間から表示 */
 .fixed-cta{ opacity:0; visibility:hidden; pointer-events:none; transform:translateY(14px);
   transition:opacity .3s ease, transform .3s ease, visibility 0s linear .3s; }
 .fixed-cta.show{ opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
   transition:opacity .3s ease, transform .3s ease, visibility 0s; }
 
-/* ===== v21：画面（スライド枠）の縦横比に合わせて写真・レイアウトを切り替える（半画面のPCでもずれない） ===== */
+/* 画面（スライド枠）の縦横比に合わせて写真・レイアウトを切り替える（半画面のPCでもずれない）  */
 .hslide-pic::after{ display:none; }                 /* 写真下部の白いグラデーションを消す */
 .pf{ container-type:size; overflow:hidden; }        /* 枠そのものの縦横比を、下の @container で判定する */
 /* ① メインビジュアル：枠が横長（縦横比3:2以上）なら横長写真、それ以外は縦長写真 */
@@ -871,7 +869,7 @@ body{ color:var(--navy); }
   .ol-sub{ flex-basis:100%; }
 }
 
-/* ===== v22：元写真をHTML/CSSで組む。枠の縦横比で並びが変わる ===== */
+/* 元写真をHTML/CSSで組む。枠の縦横比で並びが変わる  */
 .mc{ background:#fff; }
 .mc figure{ position:absolute; margin:0; overflow:hidden; }
 .mc img{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -889,7 +887,7 @@ body{ color:var(--navy); }
 .ol-tile:nth-child(2) img{ object-position:center 40%; } .ol-tile:nth-child(3) img{ object-position:center 45%; }
 .ol-tile:nth-child(4) img{ object-position:center 35%; } .ol-tile:nth-child(5) img{ object-position:55% 40%; }
 
-/* ===== v24：マンガカードのサムネ（表紙2作品）。カードが横長なら2枚並べ、縦長なら1枚ずつスワイプ ===== */
+/* マンガカードのサムネ（表紙2作品）。カードが横長なら2枚並べ、縦長なら1枚ずつスワイプ  */
 #work-3{ container-type:inline-size; }
 .manga-thumb{ aspect-ratio:3/4; background:var(--sky-soft); }
 .manga-covers{ position:absolute; inset:0; display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
@@ -904,7 +902,7 @@ body{ color:var(--navy); }
   .manga-hint{ display:none; }
 }
 
-/* ===== v25：長3ハガキのサムネ（4枚）。カードが広ければ4枚、狭ければ2枚ずつ表示してスワイプ ===== */
+/* 長3ハガキのサムネ（4枚）。カードが広ければ4枚、狭ければ2枚ずつ表示してスワイプ  */
 #work-4{ container-type:inline-size; }
 .hagaki-thumb{ aspect-ratio:auto; padding:16px 14px 30px; background:var(--sky-soft); }
 .hagaki-row{ display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
@@ -922,7 +920,7 @@ body{ color:var(--navy); }
 .people-card{ cursor:pointer; transition:transform .2s ease, box-shadow .2s ease; }
 .people-card:hover{ transform:translateY(-3px); box-shadow:0 12px 28px rgba(15,126,176,.2); }
 
-/* ===== v26：先輩の声のデザイン調整 ===== */
+/* 先輩の声のデザイン調整 = */
 /* 担当・名前・学部のフォントを Zen Maru Gothic（丸ゴシック）に */
 .people-card .team-tag,.people-card .name,.people-card .dept,
 .voice-dialog-head .team-tag,.voice-dialog-head .name,.voice-dialog-head .dept{ font-family:'Zen Maru Gothic',sans-serif; }
@@ -931,7 +929,7 @@ body{ color:var(--navy); }
 /* 見出しの吹き出しは少し細く（700→500） */
 .people-card .quote{ font-weight:500; }
 
-/* ===== v27：矢印で切り替え。同じ方向に進み続けても一周する ===== */
+/* 矢印で切り替え。同じ方向に進み続けても一周する  */
 .loop-clone{ display:block; }
 .loop-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:34px; height:34px; border-radius:50%; border:none; background:rgba(255,255,255,.94); color:var(--navy); font-size:1.5rem; line-height:1; padding:0 0 3px; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 2px 8px rgba(15,60,110,.3); }
 .loop-arrow.prev{ left:8px; } .loop-arrow.next{ right:8px; }
@@ -1113,7 +1111,7 @@ body{ color:var(--navy); }
       <div class="message-qa">
         <div class="message-q">責任者から見た広報研究所とは？</div>
         <p class="message-a">
-          ナガセ広報研究所 慶應三田オフィスでは、現役の慶應生が、全国の大学を紹介するYouTubeチャンネル「東進TV」に投稿する動画や東進の広報マンガの企画から制作・納品までを担っています。1・2年生は担当案件を自らの手でやりきる力を、3・4年生はチームを率いる力を磨くことのでき、「学びながらはたらく」ことができるユニークな場です。働く学生たちの想いは、新しいことをしたい、普通とは違う経験をしたい、自分を成長させたい、動画編集したいなど様々。君も新しい挑戦をしませんか？
+          ナガセ広報研究所 慶應三田オフィスでは、現役の慶應生が、全国の大学を紹介するYouTubeチャンネル「東進TV」に投稿する動画や東進の広報マンガの企画から制作・納品までを担っています。1・2年生は担当案件を自らの手でやりきる力を、3・4年生はチームを率いる力を磨くことで、「学びながらはたらく」ことができるユニークな場です。働く学生たちの想いは、新しいことをしたい、普通とは違う経験をしたい、自分を成長させたい、動画編集したいなど様々。君も新しい挑戦をしませんか？
         </p>
         
       </div>
@@ -1154,7 +1152,8 @@ body{ color:var(--navy); }
         </button>
         <div class="work-body">
           <p>撮影先の選定や大学とのZoomでの打ち合わせ、動画案や撮影台本の作成といった企画段階から一貫して担当します。</p>
-          <p>大学とのやり取りを通してコミュニケーション力が身に付くほか、企画力や構成力も磨かれます。撮影では学生3名ほどで大学を訪問し、教授や学生へのインタビューや動画に使用するインサートカットの撮影を実施。相手の魅力を引き出す質問力が得られるだけでなく、さまざまな大学を訪問してそれぞれの特色や魅力を発見できるのも楽しみの一つです。編集では動画の構成や素材の並べ替え、テロップの挿入などを行います。映像編集の技術はもちろん、視聴者に伝わりやすい動画を制作するための構成力や表現力も伸ばせます。編集経験が無くても研修制度が充実しているので大歓迎です！</p>
+          <p>大学とのやり取りを通してコミュニケーション力が身に付くほか、企画力や構成力も磨かれます。撮影では学生3名ほどで大学を訪問し、教授や学生へのインタビューや動画に使用するインサートカットを撮影します。相手の魅力を引き出す質問力が得られるだけでなく、さまざまな大学を訪問してそれぞれの特色や魅力を発見できるのも楽しみの一つです。編集では動画の構成や素材の並べ替え、テロップの挿入などを行います。</p>
+          <p>映像編集の技術はもちろん、視聴者に伝わりやすい動画を制作するための構成力や表現力も伸ばせます。編集経験がなくても研修制度が充実しているので大歓迎です！</p>
         </div>
       </div>
 
@@ -1170,7 +1169,8 @@ body{ color:var(--navy); }
         </button>
         <div class="work-body">
           <p>高校生に向け、現役大学生へのインタビューを通じたショート動画の企画・制作を行っています。</p>
-          <p>「高校時代に何を頑張り、どんな経験をしたのか」という一人ひとりのストーリーを引き出し、「自分も頑張ってみよう」と思える動画を届けることが私たちの目的です。企画から取材、編集、分析までを学生主体で担い、年間100本・累計1,000万再生を目指して挑戦しています。充実した研修制度を整えているため、未経験の方でも大歓迎です。制作ではPremiere Pro等の本格的なソフトを使用し、実践的な動画編集スキルを身につけることができます。視聴者目線に立つことでマーケティング能力が養われるだけでなく、細部までこだわる中で集中力や完遂力も高められます。</p>
+          <p>「高校時代に何を頑張り、どんな経験をしたのか」という一人ひとりのストーリーを引き出し、「自分も頑張ってみよう」と思える動画を届けることが私たちの目的です。企画から取材、編集、分析までを学生主体で担い、年間100本・累計1,000万再生を目指して挑戦しています。充実した研修制度を整えているため、未経験の方でも大歓迎です。</p>
+          <p>制作ではPremiere Pro等の本格的なソフトを使用し、実践的な動画編集スキルを身につけることができます。視聴者目線に立つことでマーケティング能力が養われるだけでなく、細部までこだわる中で、集中力や完遂力も高められます。</p>
         </div>
       </div>
 
@@ -1185,13 +1185,13 @@ body{ color:var(--navy); }
         </div>
         <button class="work-head">
           <span class="work-num">03</span>
-          <h3>マンガ制作（新作・改訂）</h3>
+          <h3>マンガ制作</h3>
           <div class="keyword">全国の高校生へ、ゼロから創るマンガを。</div>
         </button>
         <div class="work-body">
           <p>全国の高校生に届けるマンガの企画・プロデュースを行っています。</p>
-          <p>学年ニーズに応じたコンセプトやキャラクター設定、ストーリー展開を自分たちで企画・立案し、実際の作画やデザインは外部の制作会社へ依頼して1冊のマンガを作り上げています。自分たちのアイデアを形にできる点が大きな魅力です。また、制作会社とのやり取りを通したビジネスマナーの習得に加え、企画の過程で読者の心を動かす構成力や分析力も養うことができます。</p>
-          <figure class="work-sample"><img src="images/work/manga.webp" alt="実際に制作したマンガの1ページ（実際の作品画像に差し替え予定）"><figcaption>実際に制作したマンガ</figcaption></figure>
+          <p>学年ごとのニーズに応じたコンセプトやキャラクター設定、ストーリー展開を自分たちで企画・立案し、実際の作画やデザインは外部の制作会社へ依頼して1冊のマンガを作り上げています。自分たちのアイデアを形にできる点が大きな魅力です。</p>
+          <p>また、制作会社とのやり取りを通したビジネスマナーの習得に加え、企画の過程で読者の心を動かす構成力や分析力も養うことができます。</p>
         </div>
       </div>
 
@@ -1214,7 +1214,7 @@ body{ color:var(--navy); }
         <div class="work-body">
           <p>各家庭へ届く東進の特別招待講習のハガキを制作します。</p>
           <p>対象時期や学年に合わせたターゲット層の分析・設定から、キャッチコピーの考案、デザイン作成、掲載する講座や合格体験記の選定まで一貫して担当し、1枚のハガキを企画から完成まで作り上げていきます。</p>
-          <p>高校生の心に響くキャッチコピーを考える力が身につくほか、実際のハガキ制作を通してデザイン力や構成力も養うことができます。</p>
+          <p>高校生の心に響くキャッチコピーを考える力が身に付くほか、実際のハガキ制作を通してデザイン力や構成力も養うことができます。</p>
         </div>
       </div>
 
@@ -1230,7 +1230,7 @@ body{ color:var(--navy); }
         </button>
         <div class="work-body">
           <p>全国の中高生から届いたお悩みの解決を目指します。</p>
-          <p>寄せられた質問の中から回答するテーマを選び、専門家や著名人へのアポ取りから取材、記事の執筆・公開まで一貫して担当します。悩んでいる誰かの力になれることが大きなやりがいです。専門家や著名人とのやり取りを通して礼節やビジネスマナーが身につくほか、取材を通じて自分にはなかった新たな知識や視点を得ることができます。ぜひサムネイルのボタンからサイトをチェックしてみてください！</p>
+          <p>寄せられた質問の中から回答するテーマを選び、専門家や著名人へのアポ取りから取材、記事の執筆・公開まで一貫して担当します。悩んでいる誰かの力になれることが大きなやりがいです。専門家や著名人とのやり取りを通して礼節やビジネスマナーが身に付くほか、取材を通じて自分にはなかった新たな知識や視点を得ることができます。</p>
         </div>
       </div>
 
@@ -1260,7 +1260,7 @@ body{ color:var(--navy); }
           <div class="quote">動画編集への興味がきっかけでした。慶應生だけなので馴染みやすく安心です！</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>自宅に届いた募集ハガキをきっかけに参加した見学会で、元々関心のあった動画編集の仕事にとても惹かれました。また、働くメンバーが全員慶應生なので「ここなら周りとすぐに馴染めそう」という安心感があったことも大きな決め手です。大学の講義やサークルと無理なく両立しながら成長できる環境だと感じて選びました。</p><h4>今行っている業務はどのようなものですか？詳しく教えてください。</h4><p>東進TVの大学紹介動画の編集を行っています！どうすれば高校生に興味を持ってもらえるか、最後まで楽しく見てもらえるかなどを考えながら、動画全体の構成から、テロップやインサートの入れ方といった細部まで、こだわりながら編集を進めています。</p><figure class="vd-photo"><img src="images/voice/nishio_work.webp" alt="動画編集の作業をしている様子" style="object-position:center 45%"><figcaption>動画編集の作業をしている様子</figcaption></figure><h4>業務を行う上でやりがいを感じるのはどのような時ですか？</h4><p>編集を進めていくにつれて、徐々に完成形へと近づいていく様を見るとやりがいを感じます。</p><h4>学生生活との両立はどのようにしていますか？</h4><p>試験前は短時間、長期休みは長時間というように、自分の予定に合わせてシフトを調節しています！シフトの融通が効くのもこのオフィスのいい所だと感じているので、勉強、サークル、バイトのどれも頑張りたい人には特におすすめです！</p></div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>自宅に届いた募集ハガキをきっかけに参加した見学会で、元々関心のあった動画編集の仕事にとても惹かれました。また、働くメンバーが全員慶應生なので「ここなら周りとすぐに馴染めそう」という安心感があったことも大きな決め手です。大学の講義やサークルと無理なく両立しながら成長できる環境だと感じて選びました。</p><h4>今行っている業務はどのようなものですか？詳しく教えてください。</h4><p>東進TVの大学紹介動画の編集を行っています！どうすれば高校生に興味を持ってもらえるか、最後まで楽しく見てもらえるかなどを考えながら、動画全体の構成から、テロップやインサートの入れ方といった細部まで、こだわりながら編集を進めています。</p><figure class="vd-photo"><img src="images/voice/nishio_work.webp" alt="動画編集の作業をしている様子" style="object-position:center 45%"><figcaption>動画編集の作業をしている様子</figcaption></figure><h4>業務を行う上でやりがいを感じるのはどのような時ですか？</h4><p>編集を進めていくにつれて、徐々に完成形へと近づいていく様を見るとやりがいを感じます。</p><h4>学生生活との両立はどのようにしていますか？</h4><p>試験前は短時間、長期休みは長時間というように、自分の予定に合わせてシフトを調節しています！シフトの融通が利くのもこのオフィスのいい所だと感じているので、勉強、サークル、バイトのどれも頑張りたい人には特におすすめです！</p></div>
       </div>
       <div class="people-card">
         <img src="images/voice/hosomi_thumb.webp" alt="Hさん">
@@ -1271,7 +1271,7 @@ body{ color:var(--navy); }
           <div class="quote">大学帰りに通いやすい立地と、アットホームな雰囲気が魅力です</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>「大学生活で何かに挑戦したい」と思い参加した見学会で、先輩方が仕事内容を丁寧に教えるだけでなく、履修相談にも親身に乗ってくださいました。その温かな雰囲気に惹かれ、ここで働くと決めました。大学からのアクセスの良さや、授業に合わせて無理なく働けるフレックス制である点も大きな魅力です。</p><figure class="vd-photo vd-photo-2col"><img src="images/voice/hosomi_work_1.webp" alt="" onerror="this.remove()"><img src="images/voice/hosomi_work_2.webp" alt="" onerror="this.remove()"></figure></p><h4>一緒に働く仲間やオフィスの雰囲気はどんな感じですか？</h4><p>穏やかでアットホームな雰囲気です！分からないことがあれば、社員さんや先輩、同期にすぐ質問できます。社員さんも親身にサポートしてくださるため、安心して業務に取り組めます。</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>歓迎会やBBQ、ご飯会など年に数回開催されていて、プライベートでも楽しく交流しています。</p></div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>「大学生活で何かに挑戦したい」と思い参加した見学会で、先輩方が仕事内容を丁寧に教えるだけでなく、履修相談にも親身になって乗ってくださいました。その温かな雰囲気に惹かれ、ここで働くと決めました。大学からのアクセスの良さや、授業に合わせて無理なく働けるフレックス制である点も大きな魅力です。</p><figure class="vd-photo vd-photo-2col"><img src="images/voice/hosomi_work_1.webp" alt="" onerror="this.remove()"><img src="images/voice/hosomi_work_2.webp" alt="" onerror="this.remove()"></figure></p><h4>一緒に働く仲間やオフィスの雰囲気はどんな感じですか？</h4><p>穏やかでアットホームな雰囲気です！分からないことがあれば、社員さんや先輩、同期にすぐ質問できます。社員さんも親身にサポートしてくださるため、安心して業務に取り組めます。</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>歓迎会やBBQ、ご飯会などが年に数回開催されていて、プライベートでも楽しく交流しています！</p></div>
       </div>
       <div class="people-card">
         <img src="images/voice/tamashiro_thumb.webp" alt="Tさん">
@@ -1282,7 +1282,7 @@ body{ color:var(--navy); }
           <div class="quote">メリハリ抜群の雰囲気が魅力。仕事もプライベートも楽しめるオフィスです</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進公式のYouTubeに投稿するショート動画の編集に携わっています。ただ指示通りに動画を編集するだけでなく、チームでどうすればより沢山の人に届くショート動画を作れるか分析するのも仕事です！自分たちで1から考えるのですごくやりがいがあります！</p><figure class="vd-photo"><img src="images/voice/tamashiro_work.webp" alt="動画編集の作業をしている様子" style="object-position:center 28%"><figcaption>動画編集の作業をしている様子</figcaption></figure><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>職場の雰囲気に良い意味でギャップがありました！ 入る前はインターンと聞いて固いイメージを持っていましたが、実際に働いてみるとみんな仲が良く、メリハリのついた楽しい職場だなと感じました！</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>たくさんあります！最近はBBQやボウリング、カラオケなどに行きました！</p></div>
+        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進公式のYouTubeに投稿するショート動画の編集に携わっています。ただ指示通りに動画を編集するだけでなく、チームでどうすればより沢山の人に届くショート動画を作れるか分析するのも仕事です！自分たちで1から考えるのですごくやりがいがあります！</p><figure class="vd-photo"><img src="images/voice/tamashiro_work.webp" alt="動画編集の作業をしている様子" style="object-position:center 28%"><figcaption>動画編集の作業をしている様子</figcaption></figure><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>職場の雰囲気に良い意味でギャップがありました！ 入る前はインターンと聞いて硬いイメージを持っていましたが、実際に働いてみるとみんな仲が良く、メリハリのついた楽しい職場だなと感じました！</p><h4>業務外での先輩、同期との関わりはありますか？</h4><p>たくさんあります！最近はBBQやボウリング、カラオケなどに行きました！</p></div>
       </div>
       <div class="people-card">
         <img src="images/voice/abukawa_thumb.webp" alt="Aさん">
@@ -1293,7 +1293,7 @@ body{ color:var(--navy); }
           <div class="quote">本物の取材現場で撮影＆企画。学生主体でアイデアがどんどん形になります</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進TVで公開する大学紹介動画の制作をチームで担当しています。企画構成案の作成、大学の先生方との日程調整や事前連絡、そして撮影まで、公開に至る流れを一通り任されています。撮影当日は、カメラマンとして先生や学生へのインタビューを撮影したり、補足映像など編集で必要になる画を撮影したりしています。最近は撮影者の育成やチーム運営の仕組みづくりにも取り組んでいます。</p><figure class="vd-photo"><img src="images/voice/abukawa_work.webp" alt="" onerror="this.closest('figure').remove()"></figure><h4>カメラの業務を行う上で、最もやりがいや仕事の面白さを感じられるのはどのような瞬間ですか？</h4><p>狙っていた画がぴたりと撮れた瞬間です。研究中の先生の手元や研究室の空気感など、撮り直しがきかない一瞬を構図や光を工夫して一発で決められた時の達成感は格別です。自分の撮った画が編集で採用されるのも嬉しく、趣味のカメラが仕事として誰かの役に立っている面白さを実感します。</p><h4>オフィスで経験した大きな実績・誇れることは何ですか？</h4><p>複数大学の動画制作を企画から素材選定まで一貫して形にしてきたことです。またNotionを活用して進行状況を見える化する仕組みの導入や当番制の体制づくりを行い、自分がいなくても回るチーム体制にすることに力を入れています。独立して撮影できるメンバーを増やす育成にも注力しています。</p><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>大学の先生や広報担当の方と直接やり取りし、本物の取材現場に立てることです。作品が東進TVで公開されるため責任感と達成感があります。撮影だけでなく企画、台本作成、編集、チーム運営まで全体に関われ、学生主体で意見が通りやすく、自ら考えて動いた分だけ成長できる環境です。</p></div>
+        <div class="voice-full" hidden><h4>今行っている業務はどのようなものですか？</h4><p>東進TVで公開する大学紹介動画の制作をチームで担当しています。企画構成案の作成、大学の先生方との日程調整や事前連絡、そして撮影まで、公開に至る流れを一通り任されています。撮影当日は、カメラマンとして先生や学生へのインタビューを撮影したり、補足映像など編集で必要になる画を撮影したりしています。</p><p>最近は、撮影者の育成やチーム運営の仕組みづくりにも取り組んでいます。</p><figure class="vd-photo"><img src="images/voice/abukawa_work.webp" alt="" onerror="this.closest('figure').remove()"></figure><h4>カメラの業務を行う上で、最もやりがいや仕事の面白さを感じられるのはどのような瞬間ですか？</h4><p>狙っていた画がぴたりと撮れた瞬間です。研究中の先生の手元や研究室の空気感など、撮り直しがきかない一瞬を構図や光を工夫して一発で決められた時の達成感は格別です。自分の撮った画が編集で採用されるのも嬉しく、趣味のカメラが仕事として誰かの役に立っている面白さを実感します。</p><h4>オフィスで経験した大きな実績・誇れることは何ですか？</h4><p>複数大学の動画制作を企画から素材選定まで一貫して形にしてきたことです。またNotionを活用して進行状況を見える化する仕組みの導入や当番制の体制づくりを行い、自分がいなくても回るチーム体制にすることに力を入れています。独立して撮影できるメンバーを増やす育成にも注力しています。</p><h4>他のアルバイトでは絶対に得られなかった、このオフィスならではの魅力は何だと思いますか？</h4><p>大学の先生や広報担当の方と直接やり取りし、本物の取材現場に立てることです。作品が東進TVで公開されるため責任感と達成感があります。撮影だけでなく企画、台本作成、編集、チーム運営まで全体に関われ、学生主体で意見が通りやすく、自ら考えて動いた分だけ成長できる環境です。</p></div>
       </div>
       <div class="people-card">
         <img src="images/voice/takahashi_thumb.webp" alt="Tさん">
@@ -1304,7 +1304,7 @@ body{ color:var(--navy); }
           <div class="quote">バイト未経験の1年生でも安心。優しい先輩たちが温かく迎えてくれます</div>
           <button class="voice-open" type="button">インタビューを読む</button>
         </div>
-        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>大学に入学して、バイトを探しているときにインスタの投稿を見て、動画制作の経験をしてみたいと思い応募しました。慶應生限定という点でも仲良くなりやすそうだという安心感がありました。</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>思っていた以上に仕事内容が本格的だったことにギャップを感じました。 動画編集以外にも企画考案や取材打ち合わせなど、コミュニケーション能力が必要な業務も多くあります。大変さはありますが、社会で絶対に必要な能力を実践で経験できて良かったと思っています。</p><figure class="vd-photo"><img src="images/voice/takahashi_work.webp" alt="パソコンで作業している様子" style="object-position:center 35%"><figcaption>パソコンで作業している様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどのような感じですか？</h4><p>皆さん優しく、バイト経験がなくても楽しく仕事ができます。自分の予定に合わせて、比較的柔軟にシフトが組めるので助かっています。同じ学部の先輩に仕事以外のことでも相談したり、退勤後に一緒にご飯を食べに行ったりしてとても充実しています！</p></div>
+        <div class="voice-full" hidden><h4>このオフィスを選んだ理由は何ですか？</h4><p>大学に入学して、バイトを探しているときにオフィスのインスタの投稿を見て、動画制作の経験をしてみたいと思い応募しました。慶應生限定という点でも仲良くなりやすそうだという安心感がありました。</p><h4>実際に働いてみて、入る前とのギャップはありましたか？</h4><p>思っていた以上に仕事内容が本格的だったことにギャップを感じました。 動画編集以外にも企画考案や取材打ち合わせなど、コミュニケーション能力が必要な業務も多くあります。大変さはありますが、社会で絶対に必要な能力を実践で経験できて良かったと思っています。</p><figure class="vd-photo"><img src="images/voice/takahashi_work.webp" alt="パソコンで作業している様子" style="object-position:center 35%"><figcaption>パソコンで作業している様子</figcaption></figure><h4>一緒に働く仲間やオフィスの雰囲気はどのような感じですか？</h4><p>皆さん優しく、バイト経験がなくても楽しく仕事ができます。自分の予定に合わせて、比較的柔軟にシフトが組めるので助かっています。同じ学部の先輩に仕事以外のことでも相談したり、退勤後に一緒にご飯を食べに行ったりしてとても充実しています！</p></div>
       </div>
       <div class="people-card">
         <img src="images/voice/takara_thumb.webp" alt="Tさん">
@@ -1340,7 +1340,7 @@ body{ color:var(--navy); }
       <tr><th style="width:160px; text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">給与</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">時給1,300円〜2,250円（活躍に応じて昇給）</td></tr>
       <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">交通費</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">全額支給</td></tr>
       <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">応募資格</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">慶應義塾大学 在学生／未経験者歓迎</td></tr>
-      <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">勤務時間・シフト</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">1か月36時間（1日3時間）／大学の時間割に合わせてシフトを調整できます</td></tr>
+      <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px; border-bottom:1px solid var(--line);">勤務時間・シフト</th><td style="padding:16px 20px; border-bottom:1px solid var(--line); font-size:.9rem;">1か月36時間（1日3時間）／時間割等に合わせてシフトの調整可能</td></tr>
       <tr><th style="text-align:left; background:var(--sky-soft); color:var(--sky-dark); padding:16px 20px;">勤務地・アクセス</th><td style="padding:16px 20px; font-size:.9rem;">東京都港区三田／田町駅・三田駅から徒歩圏内</td></tr>
     </table>
     <div class="access-map reveal">
@@ -1378,7 +1378,7 @@ body{ color:var(--navy); }
       </div>
       <div class="flow-step">
         <h3>初勤務</h3>
-        <p>ナガセ広報研究所慶應三田オフィスでの勤務スタートです！充実の研修制度が整っているので未経験でも安心です。</p>
+        <p>ナガセ広報研究所慶應三田オフィスでの勤務スタートです！研修制度が整っているため、未経験の方でも安心して働けます。</p>
       </div>
     </div>
   </div>
@@ -1396,7 +1396,7 @@ body{ color:var(--navy); }
     <div class="faq-item faq-large">
       <button class="faq-q">Q. 1年生の1週間のスケジュールを教えてください</button>
       <div class="faq-a">
-        <p style="padding-top:12px;">学部によって授業の入り方が異なるため、各学部の1年生の時間割に合わせた例をご紹介します（あくまで一例です）。</p>
+        <p style="padding-top:12px;">学部によって時間割が異なるため、各学部の1年生の例をご紹介します（あくまで一例です）。</p>
         <div class="week-scroll" id="weekScrollContainer"></div>
         <div class="week-legend">
           <span><i style="background:#DCF6E3;"></i>授業</span>
@@ -1411,7 +1411,7 @@ body{ color:var(--navy); }
     </div>
     <div class="faq-item">
       <button class="faq-q">Q. シフトはどのくらいの頻度で提出しますか？</button>
-      <div class="faq-a">A. 目安として１か月ごとにシフトを提出していただきます。曜日固定の縛りはありません。</div>
+      <div class="faq-a">A. 目安として１か月ごとにシフトを提出していただきます。曜日や時間の固定の縛りはありません。</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Q. 土日の勤務は可能ですか？</button>
@@ -1420,7 +1420,7 @@ body{ color:var(--navy); }
 
     <div class="faq-category">学業・スキル・将来のための質問</div>
     <div class="faq-item">
-      <button class="faq-q">Q. 動画編集もデザインも未経験ですが大丈夫ですか？</button>
+      <button class="faq-q">Q. 動画編集もデザインも未経験ですが、大丈夫ですか？</button>
       <div class="faq-a">A. 9割近くのメンバーが未経験からスタートしています！研修制度が整っているので安心してください。</div>
     </div>
     <div class="faq-item">
@@ -1433,31 +1433,31 @@ body{ color:var(--navy); }
     </div>
     <div class="faq-item">
       <button class="faq-q">Q. 卒業生の就職先はどのような業界が多いですか？</button>
-      <div class="faq-a">A. IT・広告・メディア業界を中心に、幅広い分野で活躍しています（具体的な就職先例は取材のうえ追記予定）。</div>
+      <div class="faq-a">A. コンサル・IT・広告・メディア業界を中心に、幅広い分野で活躍しています。</div>
     </div>
 
     <div class="faq-category">報酬・福利厚生に関する質問</div>
     <div class="faq-item">
       <button class="faq-q">Q. 時給はどのように変化しますか？</button>
-      <div class="faq-a">A. 活躍やスキルの習得度に応じて、1,300円〜2,200円の範囲で昇給していきます。昇給の機会が年２回あります。</div>
+      <div class="faq-a">A. 活躍やスキルの習得度に応じて、1,300円〜2,250円の範囲で昇給していきます。年に2回、昇給の機会があります。</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Q. 交通費は支給されますか？</button>
-      <div class="faq-a">A. 規定に基づき交通費を支給しています。</div>
+      <div class="faq-a">A. 規定に基づき、交通費は全額支給されます。</div>
     </div>
 
     <div class="faq-category">職場環境・雰囲気・マナーに関する質問</div>
     <div class="faq-item">
       <button class="faq-q">Q. 学生同士の仲は良いですか？</button>
-      <div class="faq-a">A. はい。業務はもちろん、懇親会やイベントも多く、学年・学部を問わず仲良く活動しています。</div>
+      <div class="faq-a">A. はい。業務はもちろん、懇親会やイベントも多く、学年・学部を問わず仲良く活動しています！</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Q. 髪色や服装に規定はありますか？</button>
-      <div class="faq-a">A. 髪色や服装には規定がありません。自由なスタイルで勤務できる点も魅力です。</div>
+      <div class="faq-a">A. 髪色・髪型や服装には規定はありません。ピアス・ネイルもOKで自由なスタイルで勤務できる点も魅力です！</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Q. 男女比はどれくらいですか？</button>
-      <div class="faq-a">A. 大きな偏りなく、男女どちらも活躍しています。</div>
+      <div class="faq-a">A. 現在、約50名のインターン生が在籍しており、男女比は4:6ほどです。性別を問わず誰もが自分らしく活躍できる環境です！</div>
     </div>
   </div>
 </section>
@@ -1493,69 +1493,64 @@ document.querySelectorAll('.work-head').forEach(function(btn){
 
 /* ▼ 学部別・週間スケジュール表の生成（③のFAQ用、ダミーデータ） ▼ */
 (function(){
-  var days = ['月','火','水','木','金','土','日'];
-  var periods = ['1限','2限','3限','4限','5限','6限','7限'];
+  var days = ['月','火','水','木','金','土'];
+  var periods = ['1限','2限','3限','4限','5限','6限'];
 
   // 各セルは ''（空）/ '授業' / '勤務'（全学部1年生の時間割。商・理工・薬は仮データ）
   var schedules = [
     {
       name: '文学部（1年）',
       data: [
-        ['','','勤務','','','',''],
-        ['授業','','勤務','','勤務','',''],
-        ['','授業','','','勤務','',''],
-        ['授業','勤務','授業','','','',''],
-        ['授業','勤務','','授業','','',''],
-        ['','勤務','','勤務','','',''],
-        ['','','','','','','']
+        ['','','','授業','','',''],
+        ['授業','授業','授業','授業','授業','勤務',''],
+        ['授業','授業','授業','授業','授業','勤務',''],
+        ['授業','授業','授業','','授業','勤務',''],
+        ['','授業','','勤務','授業','勤務',''],
+        ['','','','勤務','','','']
       ]
     },
     {
       name: '法学部（1年）',
       data: [
+        ['','','授業','','授業','',''],
+        ['','授業','','授業','','',''],
         ['','授業','授業','授業','','',''],
-        ['授業','授業','','授業','','',''],
-        ['','授業','授業','','勤務','',''],
-        ['授業','','授業','授業','勤務','',''],
-        ['','勤務','授業','勤務','','',''],
-        ['','勤務','','勤務','','',''],
-        ['','勤務','','','','','']
+        ['','','授業','授業','','勤務',''],
+        ['勤務','','勤務','授業','','勤務',''],
+        ['勤務','','勤務','','','','']
       ]
     },
     {
       name: '商学部（1年）',
       data: [
-        ['','授業','授業','授業','授業','勤務',''],
-        ['授業','','','授業','勤務','勤務',''],
-        ['授業','授業','授業','','勤務','勤務',''],
+        ['授業','','授業','','授業','',''],
         ['授業','授業','授業','授業','授業','勤務',''],
-        ['授業','勤務','授業','勤務','授業','',''],
-        ['','勤務','','勤務','','',''],
-        ['','勤務','','勤務','','','']
+        ['','授業','授業','授業','授業','勤務',''],
+        ['勤務','授業','','','授業','勤務',''],
+        ['勤務','授業','','勤務','','',''],
+        ['','','','勤務','','','']
       ]
     },
     {
       name: '理工学部（1年）',
       data: [
-        ['','','勤務','','授業','勤務',''],
-        ['授業','授業','勤務','授業','','勤務',''],
-        ['','授業','授業','','授業','勤務',''],
-        ['授業','勤務','授業','授業','','勤務',''],
-        ['授業','勤務','授業','勤務','','',''],
-        ['','勤務','','勤務','','',''],
-        ['','勤務','','勤務','','','']
+        ['','','授業','','授業','',''],
+        ['','授業','勤務','授業','授業','',''],
+        ['授業','','勤務','','授業','勤務',''],
+        ['授業','授業','勤務','授業','授業','勤務',''],
+        ['授業','授業','','','勤務','勤務',''],
+        ['','','','','勤務','','']
       ]
     },
     {
       name: '薬学部（1年）',
       data: [
-        ['授業','授業','授業','授業','授業','',''],
-        ['授業','授業','授業','授業','授業','',''],
+        ['授業','授業','','授業','授業','',''],
         ['授業','授業','授業','授業','授業','',''],
         ['授業','授業','授業','授業','授業','勤務',''],
-        ['','','','','','勤務',''],
-        ['','勤務','','','','',''],
-        ['','','','','','','']
+        ['授業','授業','授業','授業','授業','勤務',''],
+        ['','授業','','勤務','','勤務',''],
+        ['','','','勤務','','','']
       ]
     }
   ];
@@ -1674,7 +1669,7 @@ document.querySelectorAll('.work-head').forEach(function(btn){
 </script>
 
 <script>
-/* ▼ v10：ヒーロー（4種類・10秒ごと・矢印／ドット操作）とトップへ戻るボタン ▼ */
+/* ▼ ヒーロー（4種類・10秒ごと・矢印／ドット操作）とトップへ戻るボタン ▼ */
 (function(){
   var track=document.getElementById('hTrack'); if(!track) return;
   var slides=[].slice.call(track.children), n=slides.length, i=0, timer=null;
